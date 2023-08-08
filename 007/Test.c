@@ -13,7 +13,7 @@ int main(void)
     int a, b;
     printf("Enter two integers: ");
     scanf("%d%d", &a, &b);
-   
+
     int choice;
     printf("Enter your choice: ");
     scanf("%d", &choice);
@@ -35,7 +35,7 @@ int main(void)
     {
         printf("%d - %d = %d\n", a, b, a - b);
     }
-    
+
     else
     {
         printf("%d * %d = %d\n", a, b, a * b);
@@ -46,7 +46,7 @@ int main(void)
 
 /*
 
-* * * * * * * * * * * * * * 
+* * * * * * * * * * * * * *
 * Choice   Operation      *
 *                         *
 * 1        Addition       *
