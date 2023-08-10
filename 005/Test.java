@@ -8,23 +8,23 @@ class Test
 
         int x, y;
 
-        system.out.print(Enter 2 integers: );
+        System.out.print("Enter 2 integers: ");
         x = sc.nextInt();
         y = sc.nextInt();
 
         if (x > y)
         {
-        system.out.println(x + ," is greater");
+            System.out.println(x + " is greater");
         }
 
         else if (x == y)
         {
-        system.out.println("They are equal");
+            System.out.println("They are equal");
         }
 
         else // (x < y)
         {
-        system.out.println(y + " is greater");
+            System.out.println(y + " is greater");
         }
     }
 }

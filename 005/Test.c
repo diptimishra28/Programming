@@ -5,13 +5,21 @@ int main(void)
     int x, y;
     printf("Enter 2 integers: ");
     scanf("%d%d", &x, &y);
-    
+
     if (x > y)
+    {
         printf("%d is greater\n", x);
+    }
+
     else if (x == y)
+    {
         printf("They are equal\n");
+    }
+
     else // (x < y)
+    {
         printf("%d is greater\n", y);
+    }
 
     return 0;
 }

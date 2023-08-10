@@ -11,7 +11,7 @@ int main(void)
     printf("* * * * * * * * * * * * * *\n\n");
 
     int a, b;
-    printf("Enter two integers: ");
+    printf("Enter 2 integers: ");
     scanf("%d%d", &a, &b);
 
     int choice;
@@ -21,13 +21,6 @@ int main(void)
 
     if (choice == 1)
     {
-        // int sum;
-        // sum = a + b;
-        // printf("%d\n", sum);
-
-        // int sum = a + b;
-        // printf("%d\n", sum);
-
         printf("%d + %d = %d\n", a, b, a + b);
     }
 
@@ -60,3 +53,10 @@ Enter your choice: 2
 10 - 5 = 5
 
 */
+
+// int sum;
+        // sum = a + b;
+        // printf("%d\n", sum);
+
+        // int sum = a + b;
+        // printf("%d\n", sum);

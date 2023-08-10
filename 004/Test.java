@@ -7,25 +7,23 @@ class Test
         Scanner sc = new Scanner(System.in);
 
         int n;
-
         System.out.print("Enter an integer: ");
         n = sc.nextInt();
 
         if (n > 0)
-     {
-        System.out.println(n + " is positive");
-     }
+        {
+            System.out.println(n + " is positive");
+        }
 
-     else if (n < 0)
-     {
-       System.out.println(n + " is negative");
-     }
+        else if (n < 0)
+        {
+            System.out.println(n + " is negative");
+        }
 
-     else
-     {
-        System.out.println(n + "is zero");
-     }
-
+        else
+        {
+            System.out.println(n + "is zero");
+        }
     }
 }
 
