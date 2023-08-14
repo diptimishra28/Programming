@@ -26,12 +26,9 @@ int main(void)
 }
 
 
-
-
-
 /*
 
 Enter a year: 1000
-It is a leap year
+It is not a leap year
 
 */

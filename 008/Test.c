@@ -51,6 +51,54 @@ Enter 5 positive integers: 3 2 1 2 2
 */
 
 
+// #include <stdio.h>
+
+// int main(void)
+// {
+//     int n;
+//     printf("Enter 5 positive integers: ");
+//     scanf("%d", &n);
+
+//     int largest = 0;
+
+//     if (n > largest)
+//     {
+//         largest = n;
+//     }
+
+//     scanf("%d", &n);
+
+//     if (n > largest)
+//     {
+//         largest = n;
+//     }
+
+//     scanf("%d", &n);
+
+//     if (n > largest)
+//     {
+//         largest = n;
+//     }
+
+//     scanf("%d", &n);
+
+//     if (n > largest)
+//     {
+//         largest = n;
+//     }
+
+//     scanf("%d", &n);
+
+//     if (n > largest)
+//     {
+//         largest = n;
+//     }
+
+//      printf("%d is the largest\n", largest);
+
+//     return 0;
+
+// }
 #include <stdio.h>
 
 int main(void)
@@ -67,35 +115,31 @@ int main(void)
     }
 
     scanf("%d", &n);
-
     if (n > largest)
     {
         largest = n;
     }
 
     scanf("%d", &n);
-
     if (n > largest)
     {
         largest = n;
     }
 
     scanf("%d", &n);
-
     if (n > largest)
     {
         largest = n;
     }
 
     scanf("%d", &n);
-
     if (n > largest)
     {
         largest = n;
     }
 
-     printf("%d is the largest\n", largest);
+    printf("%d is the largest\n", largest);
 
     return 0;
-
 }
+
