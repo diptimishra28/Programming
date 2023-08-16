@@ -9,18 +9,19 @@ int main(void)
 
     char c;
     printf("Enter a character: ");
-    scanf("%c%c", &c, &c);
+    scanf("%c", &c);
+    scanf("%c", &c);
     printf("your character is %c\n\n", c);
 
-    char d;
     printf("Enter a character: ");
-    scanf("%c%c", &d, &d);
-    printf("your character is %c\n\n", d);
+    scanf("%c", &c);
+    scanf("%c", &c);
+    printf("your character is %c\n\n", c);
 
-    int num;
+
     printf("Enter an integer: ");
-    scanf("%d", &num);
-    printf("Your integer is %d\n", num);
+    scanf("%d", &n);
+    printf("Your integer is %d\n", n);
 
     return 0;
 }

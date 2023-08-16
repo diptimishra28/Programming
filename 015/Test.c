@@ -2,23 +2,24 @@
 
 int main(void)
 {
-    printf("Enter the first character: ");
     char a;
+    printf("Enter the first character: ");
     scanf("%c", &a);
 
-    printf("Enter the second character: ");
     char b;
-    scanf("%c%c", &b, &b);
+    printf("Enter the second character: ");
+    scanf("%c", &b);
+    scanf("%c", &b)
 
-    printf("Enter the third character: ");
     char c;
-    scanf("%c%c", &c, &c);
+    printf("Enter the third character: ");
+    scanf("%c", &c);
+    scanf("%c", &c);
 
     printf("\nYour characters are %c, %c and %c\n", a, b, c);
 
     return 0;
 }
-
 
 
 

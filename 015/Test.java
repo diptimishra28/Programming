@@ -4,9 +4,21 @@ class Test
 {
     public static void main(String[] args)
     {
-        Scanner sc = new Scanner(System.in)
+        Scanner sc = new Scanner(System.in);
 
+        char a;
+        System.out.print("Enter the first character: ");
+        a = sc.next().charAt(0);
 
+        char b;
+        System.out.print("Enter the second character: ");
+        b = sc.next().charAt(0);
+
+        char c;
+        System.out.print("Enter the third character: ");
+        c = sc.next().charAt(0);
+
+        System.out.println("\nYour characters are " + a + ", " + b + " and " + c );
     }
 }
 

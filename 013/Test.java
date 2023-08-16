@@ -14,7 +14,6 @@ class Test
         System.out.print("Your characters are " + a + " and ");
 
         a = sc.next().charAt(0);
-        System.out.println(+ 'a');
-
+        System.out.println(a);
     }
 }
