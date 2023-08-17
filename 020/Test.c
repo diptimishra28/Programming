@@ -26,21 +26,26 @@ int main(void)
 
     // 23 / 50 = 0
     printf("50: %d\n", amount / 50);
-    amount = amount % 50;
+    amount = amount % 50; //23 % 50 = 23
 
+    // 23 / 20 = 1
     printf("20: %d\n", amount / 20);
-    amount = amount % 20;
+    amount = amount % 20; //23 % 20 = 3
 
+    // 3 / 10 = 0
     printf("10: %d\n", amount / 10);
-    amount = amount % 10;
+    amount = amount % 10; // 3 % 10 = 3
 
+    // 3 / 5 = 0
     printf("5: %d\n", amount / 5);
-    amount = amount % 5;
+    amount = amount % 5; // 3 % 5 = 3
 
+    // 3 / 2 = 1
     printf("2: %d\n", amount / 2);
-    amount = amount % 2;
+    amount = amount % 2; // 3 % 2 = 1
 
-    printf("1: %d\n", amount / 1);
+    // 1 / 1 = 1
+    printf("1: %d\n", amount / 1); // 1 % 1 = 0
 
     return 0;
 }

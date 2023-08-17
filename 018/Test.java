@@ -6,7 +6,30 @@ class Test
     {
         Scanner sc = new Scanner(System.in);
 
-        
+        char character;
+        System.out.print("Enter a character: ");
+        character = sc.next().charAt(0);
+
+        if ((character >= 'a') && (character <= 'z'))
+        {
+            System.out.println(character + " is a lowercase letter");
+        }
+
+        else if ((character >= 'A') && (character <= 'Z'))
+        {
+            System.out.println(character + " is an uppercase letter");
+        }
+
+        else if ((character >= '0') && (character <= '9'))
+        {
+            System.out.println(character + " is a digit");
+        }
+
+        else
+        {
+            System.out.println(character + " is a special character");
+        }
+
     }
 }
 
