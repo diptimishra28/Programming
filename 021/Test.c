@@ -4,11 +4,13 @@ int main(void)
 {
     int s1, s2, s3;
     printf("Enter the side lengths: ");
-    scanf("%d%d%d", &s1, &s2, &s3);
+    scanf("%d", &s1);
+    scanf{"%d", &s2};
+    scanf("%d", &s3);
 
     if ((s1 + s2 <= s3) || (s1 + s3 <= s2)|| (s2 + s3 <= s1))
     {
-        printf("It is an invalid tringle\n");
+        printf("It is an invalid triangle\n");
     }
 
     else if ((s1 == s2) && (s2 == s3))

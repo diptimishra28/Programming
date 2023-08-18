@@ -6,72 +6,79 @@ int main(void)
 {
     double a, b, c, d, e;
     printf("Enter marks in 5 subject: ");
-    scanf("%lf%lf%lf%lf%lf", &a, &b, &c, &d, &e);
+    scanf("%lf", &a);
+    scanf("%lf", &b);
+    scanf("%lf", &c);
+    scanf("%lf", &d);
+    scanf("%lf", &e);
+
 
     double avg = (a + b + c + d + e) / 5;
 
-    // if (avg >= 90.0)
-    // {
-    //     printf("The grade is A\n");
-    // }
-
-    // else if (avg >= 80.0)
-    // {
-    //     printf("The grade is B\n");
-    // }
-
-    // else if (avg >= 70.0)
-    // {
-    //     printf("The grade is C\n");
-    // }
-
-    // else if (avg >= 60.0)
-    // {
-    //      printf("The grade is D\n");
-    // }
-
-    // else if (avg >= 50.0)
-    // {
-    //      printf("The grade is E\n");
-    // }
-
-    // else
-    // {
-    //      printf("The grade is F\n");
-    // }
-
-    if (avg < 50.0 )
-    {
-        printf("The grade is F\n");
-    }
-
-    else if (avg < 60.0)
-    {
-        printf("The grade is E\n");
-    }
-
-    else if (avg < 70.0)
-    {
-        printf("The grade is D\n");
-    }
-
-    else if (avg < 80.0)
-    {
-        printf("The grade is C\n");
-    }
-
-    else if (avg < 90.0)
-    {
-        printf("The grade is B\n");
-    }
-
-    else
+    if (avg >= 90.0)
     {
         printf("The grade is A\n");
     }
 
+    else if (avg >= 80.0)
+    {
+        printf("The grade is B\n");
+    }
+
+    else if (avg >= 70.0)
+    {
+        printf("The grade is C\n");
+    }
+
+    else if (avg >= 60.0)
+    {
+         printf("The grade is D\n");
+    }
+
+    else if (avg >= 50.0)
+    {
+         printf("The grade is E\n");
+    }
+
+    else
+    {
+         printf("The grade is F\n");
+    }
     return 0;
 }
+
+//     if (avg < 50.0 )
+//     {
+//         printf("The grade is F\n");
+//     }
+
+//     else if (avg < 60.0)
+//     {
+//         printf("The grade is E\n");
+//     }
+
+//     else if (avg < 70.0)
+//     {
+//         printf("The grade is D\n");
+//     }
+
+//     else if (avg < 80.0)
+//     {
+//         printf("The grade is C\n");
+//     }
+
+//     else if (avg < 90.0)
+//     {
+//         printf("The grade is B\n");
+//     }
+
+//     else
+//     {
+//         printf("The grade is A\n");
+//     }
+
+//     return 0;
+// }
 
 /*
 

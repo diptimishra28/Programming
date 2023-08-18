@@ -29,7 +29,6 @@ class Test
         {
             System.out.println(character + " is a special character");
         }
-
     }
 }
 

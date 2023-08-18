@@ -3,11 +3,13 @@
 
 int main(void)
 {
-    printf("a x^2 + b x + c = 0\n\n");
+    printf("a x^2 + b x + c = 0\n");
 
     double a, b, c;
-    printf("Enter the values of a, b and c: ");
-    scanf("%lf%lf%lf", &a, &b, &c);
+    printf("\nEnter the values of a, b and c: ");
+    scanf("%lf", &a);
+    scanf("%lf", &b);
+    scanf("%lf", &c);
 
     double d = (b * b) - (4 * a * c);
 
@@ -18,13 +20,14 @@ int main(void)
 
     else
     {
-        double x1 = (-b + pow(d, 0.5)) / (2 * a);
-        double x2 = (-b - pow(d, 0.5)) / (2 * a);
-        printf("The roots are %f and %f\n", x1, x2);
+        printf("The roots are %f and ", (-b + sqrt(d)) / (2 * a));
+        printf("%f\n", (-b - sqrt(d)) / (2 * a));
     }
 
     return 0;
 }
+
+
 
 /*
 

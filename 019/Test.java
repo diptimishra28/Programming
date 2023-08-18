@@ -12,14 +12,13 @@ class Test
 
         if ((n == 'a') || (n == 'e') || (n == 'i') || (n == 'o') || (n == 'u'))
         {
-        System.out.println(n + " is a vowel");
+            System.out.println(n + " is a vowel");
         }
 
         else
-       {
-        System.out.println(n + " is a consonant");
-       }
-
+        {
+            System.out.println(n + " is a consonant");
+        }
     }
 }
 

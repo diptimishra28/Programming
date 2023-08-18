@@ -4,38 +4,40 @@
 
 int main(void)
 {
-    double n;
+    double unit;
     printf("Enter the number of units: ");
-    scanf("%lf", &n);
+    scanf("%lf", &unit);
 
-    if (n <= 50.0)
+    if (unit <= 50.0)
     {
-        printf("Rs. %.2f\n", n * 0.50);
+        printf("Rs. %.2f\n", unit * 0.50);
     }
 
-    else if /*(n > 50) && */ (n <= 150.0)
+    else if (unit <= 150.0)
     {
         printf("Rs. %.2f\n", (50.0 * 0.50) +
-                             ((n - 50.0) * 0.75));
+                             ((unit - 50.0) * 0.75));
     }
 
-    else if (n <= 250.0)
+    else if (unit <= 250.0)
     {
         printf("Rs. %.2f\n", (50.0 * 0.50) +
                              (100.0 * 0.75) +
-                             ((n - 150.0) * 1.20));
+                             ((unit - 150.0) * 1.20));
     }
 
-    else // (n > 250.0)
+    else
     {
         printf("Rs. %.2f\n", 1.2 * ((50.0 * 0.50) +
                                     (100.0 * 0.75) +
                                     (100.0 * 1.20) +
-                                    ((n - 250.0) * 1.50)));
+                                    ((unit - 250.0) * 1.50)));
     }
 
     return 0;
 }
+
+
 
 /*
 

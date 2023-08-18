@@ -40,7 +40,6 @@ class Test
         amount = amount % 2;
 
         System.out.println("1: " + amount / 1);
-
     }
 }
 
