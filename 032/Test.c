@@ -3,8 +3,9 @@
 int main(void)
 {
     int ll, ul;
-    printf("Enter lower and upper limit: ");
-    scanf("%d%d", &ll, &ul);
+    printf("Enter lower and upper limits: ");
+    scanf("%d", &ll);
+    scanf("%d", &ul);
 
     int new_ll;
 
@@ -13,7 +14,7 @@ int main(void)
         new_ll = ll + 1;
     }
 
-    else // (ll % 2 == 0)
+    else //(ll % 2 = 0)
     {
         new_ll = ll;
     }
@@ -25,22 +26,20 @@ int main(void)
         new_ul = ul - 1;
     }
 
-    else // (ul % 2 == 0)
+    else //(ll % 2 = 0)
     {
         new_ul = ul;
     }
-
-    //////////////////////////////////////////////////////////////
 
     if (new_ll == new_ul)
     {
         printf("%d\n", new_ll);
     }
 
-    else if (new_ll == new_ul - 2)
-    {
-        printf("%d and %d\n", new_ll, new_ul);
-    }
+    // else if (new_ll + 2 == new_ul)
+    // {
+    //     printf("%d and %d\n", new_ll, new_ul);
+    // }
 
     else
     {
@@ -50,11 +49,12 @@ int main(void)
             new_ll = new_ll + 2;
         }
 
-        printf("%d and %d\n", new_ll, new_ll + 2);
+        printf("%d and %d\n", new_ll, new_ul);
     }
 
     return 0;
 }
+
 
 /*
 
@@ -62,3 +62,4 @@ Enter lower and upper limits: 7 15
 8, 10, 12 and 14
 
 */
+

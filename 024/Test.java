@@ -13,10 +13,10 @@ class Test
 
         if (unit > 250.0)
         {
-            System.out.println("Rs. " + (1.2 * (50.0 * 0.50) +
+            System.out.println("Rs. " + ((1.2 * ((50.0 * 0.50) +
                                         (100.0 * 0.75) +
                                         (100.0 * 1.20) +
-                                        ((unit - 250.0) * 1.50)));
+                                        ((units - 250.0) * 1.50)))));
         }
 
         else if (unit > 150.0)

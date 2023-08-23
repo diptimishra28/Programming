@@ -3,8 +3,9 @@
 int main(void)
 {
     int ul, ll;
-    printf("Enter upper and lower limit: ");
-    scanf("%d%d", &ul, &ll);
+    printf("Enter upper and lower limits: ");
+    scanf("%d", &ul);
+    scanf("%d", &ll);
 
     while (ul >= ll)
     {

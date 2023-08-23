@@ -12,7 +12,6 @@ int main(void)
     scanf("%lf", &d);
     scanf("%lf", &e);
 
-
     double avg = (a + b + c + d + e) / 5;
 
     if (avg >= 90.0)
@@ -44,6 +43,7 @@ int main(void)
     {
          printf("The grade is F\n");
     }
+    
     return 0;
 }
 

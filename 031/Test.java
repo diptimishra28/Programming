@@ -1,18 +1,24 @@
-#include <stdio.h>
-
-int main(void)
+class Test
 {
-   int n = 1;
+    public static void main(String[] args)
+    {
+        int n = 1;
 
-   while (n <= 26)
-   {
-      printf("| %2d | %c |\n", n, n + 'a' - 1);
-      ++n;
-   }
+        while (n <= 9)
+        {
+            System.out.println("|  " + n + " | " + (char) (n + 'a' - 1) + " |");
+            ++n;
+        }
 
-   return 0;
+        while (n <= 26)
+        {
+            System.out.println("| " + n + " | " + (char) (n + 'a' - 1) + " |");
+            ++n;
+        }
+    }
 }
 
+//type casting (char) (n + 'a' - 1)
 /*
 
 |  1 | a |
@@ -55,3 +61,4 @@ For eg.,
  123
 
 */
+

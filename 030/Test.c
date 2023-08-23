@@ -4,27 +4,23 @@ int main(void)
 {
     int ll, ul;
     printf("Enter lower and upper limits: ");
-    scanf("%d%d", &ll, &ul);
+    scanf("%d", &ll);
+    scanf("%d", &ul);
 
     if (ll == ul)
     {
         printf("%d\n", ll);
     }
 
-    else if (ll == (ul - 1))
-    {
-        printf("%d and %d\n", ul, ll);
-    }
-
     else
     {
-        while (ll <= (ul - 2))
+        while (ul > ll + 1)
         {
-            printf("%d, ", ll);
-            ll++;
+            printf("%d, ", ul);
+            ul--;
         }
 
-        printf("%d and %d\n", ll, ll + 1);
+        printf("%d and %d\n", ll + 1, ll);
     }
 
     return 0;

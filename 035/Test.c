@@ -7,6 +7,8 @@ int main(void)
     scanf("%d", &ll);
     scanf("%d", &ul);
 
+    int sum = 0;
+
     // if (ll == ul)
     // {
     //     printf("%d\n", ll);
@@ -16,40 +18,30 @@ int main(void)
     // {
     //     while (ll < ul)
     //     {
-    //         printf("%d, ", ll);
-    //         ll++;
+    //         sum = sum + ll;
+    //         printf("%d + ", ll);
+    //         ++ll;
     //     }
 
-    //     printf("%d\n", ll);
+    //     printf("%d", ul);
     // }
-
     while (ll < ul)
     {
-        printf("%d, ", ll);
-        ll++;
+        sum = sum + ll;
+        printf("%d + ", ll);
+        ++ll;
     }
-
-    printf("%d\n", ll);
+    
+    printf("%d = %d\n", ul, sum + ul);
 
     return 0;
 }
 
+
+
 /*
 
-1)
-Enter lower and upper limits: 5 5
-5
-
-2)
-Enter lower and upper limits: 5 6
-5, 6
-
-3)
-Enter lower and upper limits: 5 10
-5, 6, 7, 8, 9, 10
-
-4)
-Enter lower and upper limits: 7 9
-7, 8, 9
+Enter lower and upper limits: 7 15
+7 + 8 + 9 + 10 + 11 + 12 + 13 + 14 + 15 = 99
 
 */

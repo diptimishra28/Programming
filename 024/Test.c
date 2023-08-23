@@ -16,7 +16,7 @@ int main(void)
                                     ((unit - 250.0) * 1.50)));
     }
 
-     else if (unit > 150.0)
+    else if (unit > 150.0)
     {
         printf("Rs. %.2f\n", (50.0 * 0.50) +
                              (100.0 * 0.75) +

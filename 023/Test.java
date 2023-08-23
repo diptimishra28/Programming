@@ -1,4 +1,5 @@
 // this program uses equality sign
+
 import java.util.Scanner;
 
 class Test
@@ -7,34 +8,34 @@ class Test
     {
         Scanner sc = new Scanner(System.in);
 
-        double unit;
+        double units;
         System.out.print("Enter the units: ");
-        unit = sc.nextDouble();
+        units = sc.nextDouble();
 
-        if (unit <= 50.0)
+        if (units <= 50.0)
         {
-            System.out.println("Rs. " + unit * 0.50);
+            System.out.println("Rs. " + units * 0.50);
         }
 
-        else if (unit <= 150.0)
+        else if (units <= 150.0)
         {
             System.out.println("Rs. " + (50.0 * 0.50) +
-                                        ((unit - 50.0) * 0.75));
+                                        ((units - 50.0) * 0.75));
         }
 
-        else if (unit <= 250.0)
+        else if (units <= 250.0)
         {
             System.out.println("Rs. " + (50.0 * 0.50) +
                                         (100.0 * 0.75) +
-                                        ((unit - 150.0) * 1.20));
+                                        ((units - 150.0) * 1.20));
         }
 
         else
         {
-            System.out.println("Rs. " + (1.2 * (50.0 * 0.50) +
+            System.out.println("Rs. " + ((1.2 * ((50.0 * 0.50) +
                                         (100.0 * 0.75) +
                                         (100.0 * 1.20) +
-                                        ((unit - 250.0) * 1.50)));
+                                        ((units - 250.0) * 1.50)))));
         }
     }
 }
