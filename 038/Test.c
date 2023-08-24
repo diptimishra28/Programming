@@ -5,12 +5,19 @@ int main(void)
     int n;
     printf("Enter a positive integer: ");
     scanf("%d", &n);
+    printf("%d has ", n);
 
-    int count;
-    while (n >= 0)
+    int count = 0;
+
+    while (n > 0)
     {
-        
+        n = n / 10;
+        ++count;
     }
+
+    printf("%d digits\n", count);
+
+    return 0;
 }
 
 
