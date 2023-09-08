@@ -12,7 +12,13 @@ int main(void)
 
     double result = 1.0;
     int exp = exponent;
-    if ((base > 0.0) && (exponent > 0))
+
+    if ((base == 0.0) && (exponent > 0))
+    {
+        printf("%g ^ %d = 0\n", base, exponent);
+    }
+
+    else if (/* ((base > 0.0) || (base < 0.0)) && */ (exponent > 0))
     {
         while (exponent >= 1)
         {
@@ -23,30 +29,14 @@ int main(void)
         printf("%g ^ %d = %g\n", base, exp, result);
     }
 
-    else if ((base > 0.0) && (exponent == 0))
-    {
-        printf("%g ^ %d = 1\n", base, exponent);
-    }
-
-    else if ((base > 0.0) && (exponent < 0))
-    {
-        while(exponent < 0)
-        {
-            result = result * base;
-            ++exponent;
-        }
-
-        printf("%g ^ %d = %g\n", base, exp, 1 / result);
-    }
-
-    else if ((base == 0.0) && (exponent > 0))
-    {
-        printf("%g ^ %d = %g\n", base, exponent, result);
-    }
-
     else if ((base == 0.0) && (exponent == 0))
     {
         printf("0 ^ 0 is undefined\n");
+    }
+
+    else if (exponent == 0)
+    {
+        printf("%g ^ %d = 1\n", base, exponent);
     }
 
     else if ((base == 0.0) && (exponent < 0))
@@ -54,25 +44,9 @@ int main(void)
         printf("Dividing by 0 is undefined\n");
     }
 
-    else if ((base < 0.0) && (exponent > 0))
+    else if (exponent < 0)
     {
-        while(exponent >= 1)
-        {
-            result = result * base;
-            --exponent;
-        }
-
-        printf("%g ^ %d = %g\n", base, exp, result);
-    }
-
-    else if ((base < 0.0) && (exponent == 0))
-    {
-        printf("%g ^ %d = 1\n", base, exponent);
-    }
-
-    else if ((base < 0.0) && (exponent < 0))
-    {
-        while(exponent < 0)
+        while (exponent < 0)
         {
             result = result * base;
             ++exponent;
@@ -80,6 +54,7 @@ int main(void)
 
         printf("%g ^ %d = %g\n", base, exp, 1 / result);
     }
+
     return 0;
 }
 // cases:-
