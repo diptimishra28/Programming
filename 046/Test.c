@@ -11,54 +11,37 @@ int main(void)
         printf("Factors = 1\n");
     }
 
-    // else
-    // {
-    //     printf("Factors = ");
-
-    //     int i = 1;
-
-    //     while (i < n)
-    //     {
-    //         // n % i == 0
-    //         if (n % i == 0)
-    //         {
-    //             printf("%d, ", i);
-    //         }
-
-    //         ++i;
-    //     }
-
-    //     printf(" and %d\n", n);
-    // }
-
-    // return 0;
-//}
-else
-{
-int i = 1;
-
-while (i < n)
-{
-    if (n % i == 0)
-    ++i;
-}
-int s = i; // 2nd last factor
-
-int t = 1; //3rd last factor
-
-while (t < s)
-{
-    if (n % t == 0)
+    else
     {
-    printf("%d, ", t);
-    ++t;
+        int i = 1;
+        int s = 0; // 2nd last factor
+
+        while (i < n)
+        {
+            if (n % i == 0)
+            {
+                s = i;
+            }
+
+            ++i;
+        }
+
+        int t = 1; //till 3rd last factor
+
+        while (t < s)
+        {
+            if (n % t == 0)
+            {
+                printf("%d, ", t);
+            }
+
+            ++t;
+        }
+
+        printf("%d and %d\n", s, n);
     }
-}
 
-printf("%d and %d", s, t);
-}
-
-return 0;
+    return 0;
 }
 
 
