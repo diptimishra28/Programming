@@ -3,9 +3,11 @@
 int main(void)
 {
     int n1, n2;
-    
+
     printf("Enter 2 positive integers: ");
     scanf("%d%d", &n1, &n2);
+
+    
 
 
 
