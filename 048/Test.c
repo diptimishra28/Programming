@@ -40,21 +40,34 @@ int main(void)
     scanf("%d", &n1);
     scanf("%d", &n2);
 
-    int hcf = 0;
-    int i = 1;
+    int i;
 
-    while ((i <= n1) && (i <= n2))
+    if (n1 > n2)
     {
-        if ((n1 % i == 0) && (n2 % i == 0))
+        i = n1;
+
+        while (i % n2 != 0)
         {
-            hcf = i;
+            i = i + n1;
         }
 
-        ++i;
+        printf("LCM = %d\n", i);
     }
 
-    int lcm = (n1 * n2) / hcf;
-    printf("LCM = %d\n", lcm);
+    else
+    {
+        i = n2;
+
+        while (i % n1 != 0)
+        {
+            i = i + n2;
+        }
+
+        printf("LCM = %d\n", i);
+    }
+
+    // int lcm = (n1 * n2) / hcf;
+    // printf("LCM = %d\n", lcm);
 
     return 0;
 
