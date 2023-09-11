@@ -6,17 +6,29 @@ int main(void)
     printf("Enter a positive integer: ");
     scanf("%d", &n);
 
-    int i = 1;
-    if (i <= n)
+    if (n == 1)
     {
-        while (n % i == 0)
-        {
-            
-        }
+        printf("%d is neither prime nor composite\n", n);
     }
 
+    else if (n % 1 == 0) // && (n % n == 0))
+    {
+        int i = 1;
+        int count = 0; //count of factors
 
-    else if ((n % 1 == 0) && (n % n))
+        while (i =< n)
+        {
+            if (n % i == 0)
+            {
+                ++count;
+            }
+
+            ++i;
+        }
+
+
+
+    else if
 }
 
 /*
