@@ -16,14 +16,6 @@ class Test
             System.out.println("1 is neither prime nor composite");
         }
 
-/*
-
-n = 9
-n_is_prime = false
-i = 3
-
-*/
-
         else
         {
             boolean n_is_prime = true;
