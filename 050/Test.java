@@ -21,7 +21,7 @@ class Test
             boolean n_is_prime = true;
             int i = 2;
 
-            while (i <= (int) Math.sqrt((double) n))
+            while (i * i <= n)//(i <= (int) Math.sqrt((double) n))
             {
                 if (n % i == 0)
                 {
