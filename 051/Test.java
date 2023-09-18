@@ -1,3 +1,48 @@
+import java.util.Scanner;
+
+class Test
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+
+        int n;
+        System.out.print("Enter the number of terms: ");
+        n = sc.nextInt();
+
+        if (n == 1)
+        {
+            System.out.println("0");
+        }
+
+        else
+        {
+            int sum = 0;
+            int a = 0;
+            int b = 1;
+
+            System.out.print(a);
+
+            while (n > 2)
+            {
+                System.out.print(", " + b);
+
+                sum = a + b;
+                a = b;
+                b = sum;
+
+                --n;
+            }
+
+            System.out.println(" and " + b);
+        }
+
+    }
+}
+
+
+
+
 /*
 
 1)
