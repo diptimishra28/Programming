@@ -4,7 +4,8 @@ int main(void)
 {
     int ll, ul;
     printf("Enter lower and upper limits: ");
-    scanf("%d%d", &ll, &ul);
+    scanf("%d", &ll);
+    scanf("%d", &ul);
 
     while (ll <= ul)
     {
@@ -18,6 +19,7 @@ int main(void)
         }
 
         ++ll;
+
     }
 
     return 0;

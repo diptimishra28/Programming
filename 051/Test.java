@@ -6,11 +6,11 @@ class Test
     {
         Scanner sc = new Scanner(System.in);
 
-        int n;
+        int terms;
         System.out.print("Enter the number of terms: ");
-        n = sc.nextInt();
+        terms = sc.nextInt();
 
-        if (n == 1)
+        if (terms == 1)
         {
             System.out.println("0");
         }
@@ -23,7 +23,7 @@ class Test
 
             System.out.print(a);
 
-            while (n > 2)
+            while (terms > 2)
             {
                 System.out.print(", " + b);
 
@@ -31,7 +31,7 @@ class Test
                 a = b;
                 b = sum;
 
-                --n;
+                --terms;
             }
 
             System.out.println(" and " + b);

@@ -6,12 +6,23 @@ class Test
     {
         Scanner sc = new Scanner(System.in);
 
-        int rows, columns;
-        System.out.print("Enter number of rows and columns: ");
+        int rows;
+        System.out.print("Enter number of rows: ");
         rows = sc.nextInt();
+
+        int columns;
+        System.out.print("Enter number of columns: ");
         columns = sc.nextInt();
 
-        
+        for (int i = 1; i <= rows; ++i)
+        {
+            for (int j = 1; j <= columns; ++j)
+            {
+                System.out.print("* ");
+            }
+
+            System.out.println();
+        }
     }
 }
 
@@ -22,4 +33,25 @@ class Test
     * * * * *
     * * * * *
     * * * * *
+*/
+
+/*
+
+int i = 0;
+
+while (i < n)
+{
+    printf("Hello\n");
+    ++i;
+}
+
+
+is equivalent to
+
+
+for (int i = 0; i < n; ++i)
+{
+    printf("Hello\n");
+}
+
 */
