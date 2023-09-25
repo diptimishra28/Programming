@@ -3,20 +3,19 @@
 int main(void)
 {
     int r;
-    printf("Enter the number of rows: ");
+    printf("Enter the number of rows (odd) (>= 5): ");
     scanf("%d", &r);
 
     int i = 1;
-
-    int s = (r + 1) / 2;
 
     while (i <= r)
     {
         int j = 1;
 
-        while (j <= s)
+        while (j <= r)
         {
-            if ((j == s) || (i + j == s + 1) || (i - j == s - 1))
+            if ((i + j == r + 1) || (i == 1) || (i == r) || (j == 1) ||
+            (j == r) || (i == j))
             {
                 printf("* ");
             }
@@ -36,18 +35,19 @@ int main(void)
     return 0;
 }
 
+
+
 /*
 Enter the number of rows (odd) (>= 5): 9
 
-        *
-      * *
-    *   *
-  *     *
-*       *
+* * * * * * * * *
+* *           * *
+*   *       *   *
+*     *   *     *
+*       *       *
+*     *   *     *
+*   *       *   *
+* *           * *
+* * * * * * * * *
 
-
-  *     *
-    *   *
-      * *
-        *
 */

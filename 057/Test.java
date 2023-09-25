@@ -31,9 +31,11 @@ class Test
             System.out.print("*");
 
             // print r - i - 1 spaces
-            for (int )
+            for (int i = 1; i <= r - i - 1; ++i)
 
             // print 1 star
+            System.out.print("*");
+
         }
 
     ///////////////////////////////////////////////////////////////
