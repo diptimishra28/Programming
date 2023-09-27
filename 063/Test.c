@@ -19,6 +19,7 @@ int main(void)
             z = z + r;
             ++j;
         }
+        
         printf("\n");
         ++i;
     }

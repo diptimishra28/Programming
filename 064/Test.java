@@ -17,7 +17,7 @@ class Test
             int z = i;
             int j = 1;
 
-            while (j <= r)
+            while (j <= i)
             {
                 if (z < 10)
                 {
@@ -32,7 +32,6 @@ class Test
 
                 z = z + r - j;
                 ++j;
-
             }
 
             System.out.println();
