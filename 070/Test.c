@@ -1,24 +1,31 @@
 #include <stdio.h>
 
-int sum(int, int);
+int calculate_sum(int, int);
 
 int main(void)
 {
     int ll, ul;
-    printf("Enter lower a: ");
+    printf("Enter lower and upper limits: ");
     scanf("%d", &ll);
     scanf("%d", &ul);
 
-    printf("Their sum is %d\n", sum(ll, ul));
+    printf("Their sum is %d\n", calculate_sum(ll, ul));
 
     return 0;
 }
 
-int sum(int ll, int ul)
+int calculate_sum(int ll, int ul)
 {
-    return ll + ul;
-}
+    int sum = 0;
 
+    while (ll <= ul)
+    {
+        sum = sum + ll;
+        ++ll;
+    }
+
+    return sum;
+}
 
 /*
 Enter lower and upper limits: 5 10

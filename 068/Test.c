@@ -9,7 +9,8 @@ int main(void)
     printf("Enter an integer: ");
     scanf("%d", &n);
 
-    if (is_even(n) == true)
+    // if (is_even(n) == true)
+    if (is_even(n))
     {
         printf("%d is even\n", n);
     }
@@ -41,3 +42,4 @@ Enter an integer: 4
 4 is even
 
 */
+
