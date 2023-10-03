@@ -1,68 +1,82 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include <math.h>
 
 bool is_prime(int);
 bool is_armstrong(int);
 
 int main(void)
 {
-    int n;
-    printf("Enter a positive integr: ");
-    scanf("%d", &n);
+    int ll, ul;
+    printf("Enter lower limit and upper limit: ");
+    scanf("%d", &ll);
+    scanf("%d", &ul);
 
-    int i = 1;
-
-    while (i <= n)
+    while (ll <= ul)
     {
-        bool n_is_prime = is_prime(i);
-        bool n_is_armstrong = is_armstrong(i);
+        bool ll_is_prime = is_prime(ll);
+        bool ll_is_armstrong = is_armstrong(ll);
 
-        if (n_is_armstrong && n_is_prime)
+        if (ll_is_prime && ll_is_armstrong)
         {
-            printf("%d is prime as well as armstrong\n", i);
+            printf("%d is prime as well as armstrong\n", ll);
         }
 
-        else if (n_is_prime)
+        else if (ll_is_prime)
         {
-            printf("%d is only prime\n", i);
+            printf("%d is only prime\n", ll);
         }
 
-        else if (n_is_armstrong)
+        else if (ll_is_armstrong)
         {
-            printf("%d is only armstrong\n", i);
+            printf("%d is only armstrong\n", ll);
         }
 
         else
         {
-            printf("%d is neither prime nor armstrong\n", i);
+            printf("%d is neither prime nor armstrong\n", ll);
         }
 
-        ++i;
+        ++ll;
     }
 }
 
-boolean is_prime(int n)
+bool is_prime(int n)
 {
-    boolean n_is_prime = true;
-    int i = 2;
+    // printf("\nChecking prime for %d\n", n);
 
-    while (i * i <= n)
+    if (n == 1)
     {
-        if (n % i == 0)
-        {
-            n_is_prime = false;
-            break;
-        }
-        ++i;
+        return false;
     }
-    return n_is_prime;
-}
 
+    else
+    {
+        bool n_is_prime = true;
+        int i = 2;
+
+        while (i * i <= n)
+        {
+            if (n % i == 0)
+            {
+                n_is_prime = false;
+                break;
+            }
+
+            ++i;
+        }
+
+        return n_is_prime;
+    }
+}
 
 bool is_armstrong(int i)
 {
+    // printf("\nChecking armstrong for %d\n", i);
+
     int x = i;
     int y = i;
+
     int no_of_digits = 0;
 
     while (i > 0)
@@ -76,11 +90,11 @@ bool is_armstrong(int i)
     while (x > 0)
     {
         int last_digit = x % 10;
-        sum = sum + pow(last_digit, no_of_digits);
+        sum = sum + (int) pow((double) last_digit, (double) no_of_digits);
         x = x / 10;
     }
 
-    return sum == ;
+    return sum == y;
 }
 
 
@@ -97,3 +111,5 @@ Enter lower and upper limits: 7 13
 13 is only prime
 
 */
+
+

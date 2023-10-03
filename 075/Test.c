@@ -15,19 +15,22 @@ int main(void)
 
     while (i <= n)
     {
-        if ((n % i == 0) && (is_prime(i)))
+        if (is_prime(i) && (n % i == 0))
+        if ((n % i == 0) && is_prime(i))
         {
             printf("%d ", i);
         }
 
         ++i;
     }
-    
+
     return 0;
 }
 
 bool is_prime(int n)
 {
+    printf("\nChecking for prime: n = %d\n", n);
+
     int i = 1;
     int number_of_factors = 0;
 

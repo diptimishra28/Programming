@@ -19,6 +19,8 @@ class Test
                 System.out.print(i + " ");
             }
         }
+
+        System.out.println();
     }
 
     static boolean is_prime(int z)
