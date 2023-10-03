@@ -13,10 +13,19 @@ int main(void)
     return 0;
 }
 
-while (n <= 1)
+int calculate_factorial(int n)
 {
-    
+    int fact = 1;
+
+    while (n >= 2)
+    {
+        fact = fact * n;
+        --n;
+    }
+
+    return fact;
 }
+
 /*
 
 1)
