@@ -23,7 +23,7 @@
 
 #include <stdio.h>
 
-void swap(int*, int*, int, int)
+void swap(int*, int*)
 
 int main(void)
 {
@@ -37,14 +37,13 @@ int main(void)
     return 0;
 }
 
-void swap(int* ptr_a, int* ptr_b, int a, int b)
+void swap(int* ptr_a, int* ptr_b)
 {
-    *ptr_a = &b;
-    
+    int c = *ptr_a;
+    *ptr_a = *ptr_b;
+    *ptr_b = c;
+
 }
-
-
-
 
 /*
 
@@ -52,3 +51,5 @@ Before swapping, a = 5 and b = 10
 After swapping, a = 10 and b = 5
 
 */
+
+
