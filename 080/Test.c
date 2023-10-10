@@ -23,7 +23,7 @@
 
 #include <stdio.h>
 
-void swap(int*, int*)
+void swap(int*, int*);
 
 int main(void)
 {

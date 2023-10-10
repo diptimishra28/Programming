@@ -3,80 +3,62 @@
 int main(void)
 {
     int n;
-    printf("Enter a non-negative integer: ");
+    printf("Enter a positive integer: ");
     scanf("%d", &n);
 
     int c0 = 0, c1 = 0, c2 = 0, c3 = 0, c4 = 0,
         c5 = 0, c6 = 0, c7 = 0, c8 = 0, c9 = 0;
 
-    while (n >= 1)
+    while (n > 0)
     {
-        int last_digit = n % 10;
+        int ld = n % 10;
 
-        if (last_digit == 0)
+        if (ld == 0)
         {
             ++c0;
         }
-        // last_digit = n % 10;
-        // n = n / 10;
 
-        else if (last_digit == 1)
+        else if (ld == 1)
         {
             ++c1;
         }
-        // last_digit = n % 10;
-        // n = n / 10;
 
-        else if (last_digit == 2)
+        else if (ld == 2)
         {
             ++c2;
         }
-        // last_digit = n % 10;
-        // n = n / 10;
 
-        else if (last_digit == 3)
+        else if (ld == 3)
         {
             ++c3;
         }
-        // last_digit = n % 10;
-        // n = n / 10;
 
-        else if (last_digit == 4)
+        else if (ld == 4)
         {
             ++c4;
         }
-        // last_digit = n % 10;
-        // n = n / 10;
 
-        else if (last_digit == 5)
+        else if (ld == 5)
         {
             ++c5;
         }
-        // last_digit = n % 10;
-        // n = n / 10;
 
-        else if (last_digit == 6)
+        else if (ld == 6)
         {
             ++c6;
         }
-        // last_digit = n % 10;
-        // n = n / 10;
 
-        else if (last_digit == 7)
+        else if (ld == 7)
         {
             ++c7;
         }
-        // last_digit = n % 10;
-        // n = n / 10;
 
-        else if (last_digit == 8)
+        else if (ld == 8)
         {
             ++c8;
         }
-        // last_digit = n % 10;
-        // n = n / 10;
 
-        else // if (last_digit == 9)
+        else
         {
             ++c9;
         }
