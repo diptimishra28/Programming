@@ -15,7 +15,8 @@ Enter element to be searched: 6
 */
 
 #include <stdio.h>
-#include <stdbool.h>
+
+int find(int*, int);
 
 int main(void)
 {
@@ -31,24 +32,11 @@ int main(void)
     printf("Enter element to be searched: ");
     scanf("%d", &target);
 
-    bool target_is_found = false;
+    int index_of_target = find(arr, target);
 
-    int i = 0;
-
-    while (i < 5)
+    if (index_of_target != -1)
     {
-        if (target == arr[i])
-        {
-            target_is_found = true;
-            break;
-        }
-
-        ++i;
-    }
-
-    if (target_is_found)
-    {
-        printf("%d found\n", target);
+        printf("%d found at %d index\n", target, index_of_target);
     }
 
     else
@@ -59,6 +47,25 @@ int main(void)
     return 0;
 }
 
+int find(int* arr, int target)
+{
+    int index_of_target = -1;
+
+    int i = 0;
+
+    while (i < 5)
+    {
+        if (target == arr[i])
+        {
+            index_of_target = i;
+            break;
+        }
+
+        ++i;
+    }
+
+    return index_of_target;
+}
 
 
 /*
