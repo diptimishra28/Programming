@@ -38,3 +38,48 @@ For eg.,
 and so on.
 
 */
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// class Test
+// {
+//     public static void main(String[] args)
+//     {
+//         // This has been deprecated
+//         // Integer ref = new Integer(73);
+
+//         Integer ref = Integer.valueOf(73);
+//         System.out.println(ref);
+//     }
+// }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/*
+Enter 2 integers: 5 7
+5 + 7 = 12
+*/
+
+
+import java.util.Scanner;
+import java.lang.Math;
+
+class Test
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter two integers: ");
+
+        // Integer ref1 = Integer.valueOf(sc.nextInt());
+        Integer ref1 = sc.nextInt();
+
+        // Integer ref2 = Integer.valueOf(sc.nextInt());
+        Integer ref2 = sc.nextInt();
+
+        System.out.println(ref1 + " + " + ref2 + " = " + (ref1 + ref2));
+
+    }
+}
+
+
