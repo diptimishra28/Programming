@@ -19,17 +19,21 @@ class Test
     {
         Scanner sc = new Scanner(System.in);
 
+        int n;
+        System.out.print("Enter the number of integers: ");
+        n = sc.nextInt();
+
         // int* arr = (int*) malloc(5 * sizeof (int));
-        int[] arr = new int[10];
+        int[] arr = new int[n];
 
-        System.out.print("Enter 10 integers: ");
+        System.out.print("Enter " + n + " integers: ");
 
-        for (int i = 0; i < 10; ++i)
+        for (int i = 0; i < n; ++i)
         {
             arr[i] = sc.nextInt();
         }
 
-        for (int i = 0; i < 10; ++i)
+        for (int i = 0; i < n; ++i)
         {
             if (arr[i] > 0)
             {
@@ -38,6 +42,5 @@ class Test
         }
 
         System.out.println();
-
     }
 }

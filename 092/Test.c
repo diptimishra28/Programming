@@ -39,16 +39,20 @@ Enter 5 integers 10 20 30 40 50
 
 int main(void)
 {
-    int* arr = (int*) malloc(5 * sizeof (int));
+    int n;
+    printf("Enter the no of integers: ");
+    scanf("%d", &n);
 
-    printf("Enter 5 integers: ");
+    int* arr = (int*) malloc(n * sizeof (int));
 
-    for (int i = 0; i < 5; ++i)
+    printf("Enter %d integers: ", n);
+
+    for (int i = 0; i < n; ++i)
     {
         scanf("%d", arr + i);
     }
 
-    for (int i = 0; i < 5; ++i)
+    for (int i = 0; i < n; ++i)
     {
         printf("%d ", *(arr + i));
     }
@@ -59,3 +63,13 @@ int main(void)
 
     return 0;
 }
+
+
+/*
+
+Enter the number of integers: 7
+Enter 7 integers: 1 2 3 4 5 6 7
+
+1 2 3 4 5 6 7
+
+*/

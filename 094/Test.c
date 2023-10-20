@@ -8,18 +8,22 @@ Their sum is - 15
 
 // int main(void)
 // {
-//     int* arr = (int*) malloc(10 * sizeof (int));
+//     int n;
+//     printf("Enter the number of integers: ");
+//     scanf("%d", &n);
 
-//     printf("Enter 5 integers ");
+//     int* arr = (int*) malloc(n * sizeof (int));
 
-//     for (int i = 0; i < 5; ++i)
+//     printf("Enter %d integers ", n);
+
+//     for (int i = 0; i < n; ++i)
 //     {
 //         scanf("%d", &(arr[i]));
 //     }
 
 //     int sum = 0;
 
-//     for (int i = 0; i < 5; ++i)
+//     for (int i = 0; i < n; ++i)
 //     {
 //         sum = sum + arr[i];
 //     }
@@ -39,18 +43,22 @@ Their sum is - 15
 
 int main(void)
 {
-    int* arr = (int*) malloc(10 * sizeof (int));
+    int n;
+    printf("Enter the number of integers: ");
+    scanf("%d", &n);
 
-    printf("Enter 5 integers ");
+    int* arr = (int*) malloc(n * sizeof (int));
 
-    for (int i = 0; i < 5; ++i)
+    printf("Enter %d integers ", n);
+
+    for (int i = 0; i < n; ++i)
     {
         scanf("%d", arr + i);
     }
 
     int sum = 0;
 
-    for (int i = 0; i < 5; ++i)
+    for (int i = 0; i < n; ++i)
     {
         sum = sum + (*(arr + i));
     }
@@ -66,18 +74,3 @@ int main(void)
 
 
 
-
-
-
-
-
-/*
-
-int* count = (int*) malloc(10 * sizeof(int));
-
-    for (int i = 0; i < 10; ++i)
-    {
-        count[i] = 0;
-    }
-
-*/

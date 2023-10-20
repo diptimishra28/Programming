@@ -12,19 +12,23 @@ class Test
     {
         Scanner sc = new Scanner(System.in);
 
+        int n;
+        System.out.print("Enter the number of integers: ");
+        n = sc.nextInt();
+
         // int* arr = (int*) malloc(5 * sizeof (int));
-        int[] arr = new int[5];
+        int[] arr = new int[n];
 
-        System.out.print("Enter 5 integers: ");
+        System.out.print("Enter " + n + " integers: ");
 
-        for (int i = 0; i < 5; ++i)
+        for (int i = 0; i < n; ++i)
         {
             arr[i] = sc.nextInt();
         }
 
         int sum = 0;
 
-        for (int i = 0; i < 5; ++i)
+        for (int i = 0; i < n; ++i)
         {
             sum = sum + arr[i];
         }
@@ -32,6 +36,5 @@ class Test
         System.out.print("Their sum is - " + sum);
 
         System.out.println();
-
     }
 }

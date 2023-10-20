@@ -8,11 +8,16 @@ Enter 5 elements 2 3 4 5 6
 
 // int main(void)
 // {
-//     int* arr = (int*) malloc(10 * sizeof (int));
 
-//     printf("Enter 10 integers ");
+//     int n;
+//     printf("Enter the number of integers: ");
+//     scanf("%d", &n);
 
-//     for (int i = 0; i < 10; ++i)
+//     int* arr = (int*) malloc(n * sizeof (int));
+
+//     printf("Enter %d integers ", n);
+
+//     for (int i = 0; i < n; ++i)
 //     {
 //         scanf("%d", &(arr[i]));
 //     }
@@ -20,7 +25,7 @@ Enter 5 elements 2 3 4 5 6
 //     int max = arr[0];
 //     int min = arr[0];
 
-//     for (int i = 1; i < 10; ++i)
+//     for (int i = 1; i < n; ++i)
 //     {
 //         if (arr[i] > max)
 //         {
@@ -47,11 +52,15 @@ Enter 5 elements 2 3 4 5 6
 
 int main(void)
 {
-    int* arr = (int*) malloc(10 * sizeof (int));
+    int n;
+    printf("Enter the number of integers: ");
+    scanf("%d", &n);
 
-    printf("Enter 10 integers ");
+    int* arr = (int*) malloc(n * sizeof (int));
 
-    for (int i = 0; i < 10; ++i)
+    printf("Enter %d integers ", n);
+
+    for (int i = 0; i < n; ++i)
     {
         scanf("%d", arr + i);
     }
@@ -59,7 +68,7 @@ int main(void)
     int max = *(arr + 0);
     int min = *(arr + 0);
 
-    for (int i = 1; i < 10; ++i)
+    for (int i = 1; i < n; ++i)
     {
         if (arr[i] > max)
         {

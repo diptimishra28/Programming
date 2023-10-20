@@ -12,12 +12,16 @@ class Test
     {
         Scanner sc = new Scanner(System.in);
 
+        int n;
+        System.out.print("Enter the number of integers: ");
+        n = sc.nextInt();
+
         // int* arr = (int*) malloc(5 * sizeof (int));
-        int[] arr = new int[5];
+        int[] arr = new int[n];
 
-        System.out.print("Enter 5 integers: ");
+        System.out.print("Enter " + n + " integers: ");
 
-        for (int i = 0; i < 5; ++i)
+        for (int i = 0; i < n; ++i)
         {
             arr[i] = sc.nextInt();
         }
@@ -25,7 +29,7 @@ class Test
         int max = arr[0];
         int min = arr[0];
 
-        for (int i = 1; i < 5; ++i)
+        for (int i = 1; i < n; ++i)
         {
             if (arr[i] > max)
             {
@@ -39,6 +43,5 @@ class Test
         }
 
         System.out.println(max + " is maximum and " + min + " is minimum");
-
     }
 }

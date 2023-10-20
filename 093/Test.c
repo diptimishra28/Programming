@@ -17,16 +17,20 @@ Enter 10 integers: -1 0 0 -1 -2 -3 0 -4 -5 0
 
 int main(void)
 {
-    int* arr = (int*) malloc(10 * sizeof (int));
+    int n;
+    printf("Enter the number of integers: ");
+    scanf("%d", &n);
 
-    printf("Enter 10 integers ");
+    int* arr = (int*) malloc(n * sizeof (int));
 
-    for (int i = 0; i < 10; ++i)
+    printf("Enter %d integers ", n);
+
+    for (int i = 0; i < n; ++i)
     {
         scanf("%d", arr + i);
     }
 
-    for (int i = 0; i < 10; ++i)
+    for (int i = 0; i < n; ++i)
     {
         if (arr[i] > 0)
         {
@@ -35,6 +39,7 @@ int main(void)
     }
 
     printf("\n");
+
     free((void*) arr);
 
     return 0;
@@ -46,16 +51,20 @@ int main(void)
 
 // int main(void)
 // {
-//     int* arr = (int*) malloc(10 * sizeof (int));
+//     int n;
+//     printf("Enter the number of integers: ");
+//     scanf("%d", &n);
 
-//     printf("Enter 10 integers ");
+//     int* arr = (int*) malloc(n * sizeof (int));
 
-//     for (int i = 0; i < 10; ++i)
+//     printf("Enter %d integers ", n);
+
+//     for (int i = 0; i < n; ++i)
 //     {
 //         scanf("%d", &(arr[i]));
 //     }
 
-//     for (int i = 0; i < 10; ++i)
+//     for (int i = 0; i < n; ++i)
 //     {
 //         if (arr[i] > 0)
 //         {
@@ -64,6 +73,7 @@ int main(void)
 //     }
 
 //     printf("\n");
+
 //     free((void*) arr);
 
 //     return 0;
