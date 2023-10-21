@@ -1,6 +1,8 @@
 /*
+
 Enter 5 elements 2 3 4 5 6
 6 is maximum and 2 is minimum
+
 */
 
 // #include <stdio.h>
