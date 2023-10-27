@@ -98,6 +98,31 @@ class Test
         System.out.println(arr.indexOf(50));
 
         System.out.println("-------------------------------------------------");
+
+        for (int i = 0; i < arr.size(); ++i)
+        {
+            System.out.print(arr.get(i) + " ");
+        }
+
+        System.out.println();
+
+        System.out.println(arr.lastIndexOf(10));
+
+        System.out.println(arr.lastIndexOf(30));
+
+        System.out.println(arr.lastIndexOf(50));
+
+        System.out.println("-------------------------------------------------");
+
+        arr.remove(3);
+
+        for (int i = 0; i < arr.size(); ++i)
+        {
+            System.out.print(arr.get(i) + " ");
+        }
+
+        System.out.println();
+
+        System.out.println("-------------------------------------------------");
     }
 }
-

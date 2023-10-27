@@ -14,6 +14,8 @@ void array_list_int_add_at_index(int, int);
 void array_list_int_clear(void);
 bool array_list_int_contains(int);
 int array_list_int_index_of(int);
+int array_list_int_last_index_of(int);
+void array_list_int_remove(int);
 
 int main(void)
 {
@@ -109,6 +111,32 @@ int main(void)
 
     printf("---------------------------------------------------------------\n");
 
+    for (int i = 0; i < array_list_int_size(); ++i)
+    {
+        printf("%d ", array_list_int_get(i));
+    }
+
+    printf("\n");
+
+    printf("%d\n", array_list_int_last_index_of(10));
+
+    printf("%d\n", array_list_int_last_index_of(30));
+
+    printf("%d\n", array_list_int_last_index_of(50));
+
+    printf("---------------------------------------------------------------\n");
+
+    array_list_int_remove(3);
+
+    for (int i = 0; i < array_list_int_size(); ++i)
+    {
+        printf("%d ", array_list_int_get(i));
+    }
+
+    printf("\n");
+
+    printf("---------------------------------------------------------------\n");
+
     return 0;
 }
 
@@ -196,7 +224,7 @@ bool array_list_int_contains(int n)
 
 int array_list_int_index_of(int n)
 {
-    for (int i = 0; i <= size ; ++i)
+    for (int i = 0; i < size; ++i)
     {
         if (arr[i] == n)
         {
@@ -205,14 +233,22 @@ int array_list_int_index_of(int n)
     }
 
     return -1;
-
 }
 
-10 20 30 40 10 20
-0  1  2  3  4  5
+int array_list_int_last_index_of(int n)
+{
+    for (int i = size - 1; i >= 0; --i)
+    {
+        if (arr[i] == n)
+        {
+            return i;
+        }
+    }
 
-size = 6
+    return -1;
+}
 
-10 - 4
-30 - 2
-50 - -1
+void array_list_int_remove(int i)
+{
+    
+}
