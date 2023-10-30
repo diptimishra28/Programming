@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
@@ -16,6 +17,8 @@ bool array_list_int_contains(int);
 int array_list_int_index_of(int);
 int array_list_int_last_index_of(int);
 void array_list_int_remove(int);
+void array_list_int_remove_range(int, int);
+int* array_list_int_to_array(void);
 
 int main(void)
 {
@@ -137,6 +140,21 @@ int main(void)
 
     printf("---------------------------------------------------------------\n");
 
+    array_list_int_remove_range(1, 2);
+
+    int* array = array_list_int_to_array();
+
+    for (int i = 0; i < array_list_int_size(); ++i)
+    {
+        printf("%d ", array[i]);
+    }
+
+    printf("\n");
+
+    printf("---------------------------------------------------------------\n");
+
+    free((void*) array);
+
     return 0;
 }
 
@@ -211,11 +229,11 @@ void array_list_int_clear(void)
 
 bool array_list_int_contains(int n)
 {
-	for (int i = 0; i < size; ++i)
+    for (int i = 0; i < size; ++i)
 	{
-		if (arr[i] == n)
-		{
-			return true;
+        if (arr[i] == n)
+		   {
+		       return true;
         }
     }
 
@@ -250,5 +268,54 @@ int array_list_int_last_index_of(int n)
 
 void array_list_int_remove(int i)
 {
-    
+    if ((i < 0) || (i >= size))
+    {
+        printf("\n======================");
+        printf("\nEXITING DUE TO FAILURE");
+        printf("\n======================\n");
+
+        exit(EXIT_FAILURE);
+    }
+
+    for (int j = i + 1; j < size; ++j)
+    {
+        arr[j - 1] = arr[j];
+    }
+
+    --size;
 }
+
+void array_list_int_remove_range(int i, int j)
+{
+    // ((i < 0) || (i >= size) || (j < 0) || (j >= size) || (i > j))
+    if ((i > j) || (i < 0) || (j >= size))
+    {
+        printf("\n======================");
+        printf("\nEXITING DUE TO FAILURE");
+        printf("\n======================\n");
+
+        exit(EXIT_FAILURE);
+    }
+
+    int offset = j - i + 1;
+
+    for (int k = j + 1; k < size; ++k)
+    {
+        arr[k - offset] = arr[k];
+    }
+
+    size = size - offset;
+}
+
+int* array_list_int_to_array(void)
+{
+    int* array = (int*) malloc(size * sizeof (int));
+
+    for (int i = 0; i < size; ++i)
+    {
+        array[i] = arr[i];
+    }
+
+    return array;
+}
+

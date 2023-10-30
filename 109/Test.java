@@ -124,5 +124,20 @@ class Test
         System.out.println();
 
         System.out.println("-------------------------------------------------");
+
+        // No built-in method for removeRange in Java
+
+        Integer[] array = arr.toArray(new Integer[arr.size()]);
+
+        for (int i = 0; i < array.length; ++i)
+        {
+            System.out.print(array[i] + " ");
+        }
+
+        System.out.println();
+
+        System.out.println("-------------------------------------------------");
     }
 }
+
+

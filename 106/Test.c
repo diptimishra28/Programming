@@ -42,7 +42,7 @@ int main(void)
     double max_sum = 0.0;
     int topper = 0;
 
-    for (int i = 0; i < 2; ++i)
+    for (int i = 0; i < n; ++i)
     {
         double sum = (p[i]).marks1 + (p[i]).marks2 + (p[i]).marks3;
 

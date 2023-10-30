@@ -15,32 +15,6 @@ Enter 5 integers 10 20 30 40 50
 
 // POINTER NOTATION //
 
-#include <stdio.h>
-
-int main(void)
-{
-    int arr[5];
-
-    printf("Enter 5 integers ");
-
-    for (int i = 0; i < 5; ++i)
-    {
-        scanf("%d", arr + i);
-    }
-
-    for (int i = 0; i < 5; ++i)
-    {
-        printf("%d ", *(arr + i));
-    }
-
-    printf("\n");
-
-    return 0;
-}
-
-
-
-
 // #include <stdio.h>
 
 // int main(void)
@@ -49,18 +23,42 @@ int main(void)
 
 //     printf("Enter 5 integers ");
 
-//     for(int i = 0; i < 5; ++i)
+//     for (int i = 0; i < 5; ++i)
 //     {
-//         scanf("%d", &arr[i]);
+//         scanf("%d", arr + i);
 //     }
 
-//     for(int i = 0; i < 5; ++i)
+//     for (int i = 0; i < 5; ++i)
 //     {
-//         printf("%d ", arr[i]);
+//         printf("%d ", *(arr + i));
 //     }
 
 //     printf("\n");
 
 //     return 0;
 // }
+
+
+#include <stdio.h>
+
+int main(void)
+{
+    int arr[5];
+
+    printf("Enter 5 integers ");
+
+    for(int i = 0; i < 5; ++i)
+    {
+        scanf("%d", &arr[i]);
+    }
+
+    for(int i = 0; i < 5; ++i)
+    {
+        printf("%d ", arr[i]);
+    }
+
+    printf("\n");
+
+    return 0;
+}
 
