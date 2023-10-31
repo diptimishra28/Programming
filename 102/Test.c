@@ -80,8 +80,8 @@ int main(void)
         printf("Student 2 scored more than student 1\n");
     }
 
-    free((void*) ptr_s1);
-    free((void*) ptr_s2);
+    free(ptr_s1);
+    free(ptr_s2);
 
     return 0;
 }

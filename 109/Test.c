@@ -153,8 +153,7 @@ int main(void)
 
     printf("---------------------------------------------------------------\n");
 
-    free((void*) array);
-
+    free((void*) array); // free((void*) array); free hmesa void data type accept krta h.
     return 0;
 }
 
@@ -232,8 +231,8 @@ bool array_list_int_contains(int n)
     for (int i = 0; i < size; ++i)
 	{
         if (arr[i] == n)
-		   {
-		       return true;
+		{
+		    return true;
         }
     }
 
