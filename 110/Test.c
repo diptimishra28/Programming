@@ -164,7 +164,7 @@ int main(void)
 
     printf("---------------------------------------------------------------\n");
 
-    free((void*) array);
+    free(array);
 
     destroy_Array_List_int(&a1);
 
@@ -192,9 +192,9 @@ void create_empty_Array_List_int(Array_List_int* ptr)
 void create_empty_Array_List_int_with_initial_capacity(Array_List_int* ptr,
                                                        int initial_capacity)
 {
-    ptr->arr = (int*) malloc(initial_capacity * sizeof (int));
+    ptr->arr = malloc(initial_capacity * sizeof (int));
 
-    if ((void*) ptr->arr == NULL)
+    if (ptr->arr == NULL)
     {
         printf("\n---------------------------------------------------");
         printf("\ncreate_empty_Array_List_int_with_initial_capacity()");
@@ -285,9 +285,9 @@ void Array_List_int_add_at_index(Array_List_int* ptr, int i, int n)
     if (ptr->size == ptr->capacity)
     {
         ptr->capacity = ptr->capacity * 2;
-        ptr->arr = (int*) realloc(ptr->arr, ptr->capacity * sizeof (int));
+        ptr->arr = realloc(ptr->arr, ptr->capacity * sizeof (int));
 
-        if ((void*) ptr->arr == NULL)
+        if (ptr->arr == NULL)
         {
             printf("\n-------------------------------------");
             printf("\nArray_List_int_add_at_index()");
@@ -309,9 +309,9 @@ void Array_List_int_add_at_index(Array_List_int* ptr, int i, int n)
 
 void Array_List_int_clear(Array_List_int* ptr)
 {
-    ptr->arr = (int*) realloc(ptr->arr, sizeof (int));
+    ptr->arr = realloc(ptr->arr, sizeof (int));
 
-    if ((void*) ptr->arr == NULL)
+    if (ptr->arr == NULL)
     {
         printf("\n-------------------------------------");
         printf("\nArray_List_int_clear()");
@@ -385,10 +385,10 @@ void Array_List_int_remove(Array_List_int* ptr, int i)
 
     if (ptr->size < ptr->capacity / 2)
     {
-        ptr->capacity = ptr->size + 1;
-        ptr->arr = (int*) realloc(ptr->arr, ptr->capacity * sizeof (int));
+        ptr->capacity = (ptr->size == 0) ? 1 : ptr->size;
+        ptr->arr = realloc(ptr->arr, ptr->capacity * sizeof (int));
 
-        if ((void*) ptr->arr == NULL)
+        if (ptr->arr == NULL)
         {
             printf("\n-------------------------------------");
             printf("\nArray_List_int_remove()");
@@ -423,10 +423,10 @@ void Array_List_int_remove_range(Array_List_int* ptr, int i, int j)
 
     if (ptr->size < ptr->capacity / 2)
     {
-        ptr->capacity = ptr->size + 1;
-        ptr->arr = (int*) realloc(ptr->arr, ptr->capacity * sizeof (int));
+        ptr->capacity = (ptr->size == 0) ? 1 : ptr->size;
+        ptr->arr = realloc(ptr->arr, ptr->capacity * sizeof (int));
 
-        if ((void*) ptr->arr == NULL)
+        if (ptr->arr == NULL)
         {
             printf("\n-------------------------------------");
             printf("\nArray_List_int_remove_range()");
@@ -440,7 +440,7 @@ void Array_List_int_remove_range(Array_List_int* ptr, int i, int j)
 
 int* Array_List_int_to_array(Array_List_int* ptr)
 {
-    int* array = (int*) malloc(ptr->size * sizeof (int));
+    int* array = malloc(ptr->size * sizeof (int));
 
     for (int i = 0; i < ptr->size; ++i)
     {
@@ -452,102 +452,5 @@ int* Array_List_int_to_array(Array_List_int* ptr)
 
 void destroy_Array_List_int(Array_List_int* ptr)
 {
-    free((void*) ptr->arr);
+    free(ptr->arr);
 }
-
-/*
-
-If the alignment requirement (_Alignof) of a data type is x bytes, then every
-variable of that data type will be (on almost all implementations) allocated
-starting at an address which is divisible by x.
-
-The alignment requirement of every data type is always a non-negative integral
-power of 2 (i.e. 1, 2, 4, 8, 16, etc.).
-
-////////////////////////////////////////////////////////////////////////////////
-
-For fundamental data types (int, double, etc.), _Alignof (data type) is (on almost all
-implementations) equal to sizeof (data type).
-
-So, if _Alignof (int) == sizeof (int) == 4, then every variable of data type int
-will be allocated starting at an address which is divisible by 4.
-
-And, if _Alignof (double) == sizeof (double) == 8, then every variable of data
-type double will be allocated starting at an address which is divisible by 8.
-
-////////////////////////////////////////////////////////////////////////////////
-
-For structures, _Alignof (T) is equal to the maximum alignment requirement of
-its members.
-
-So, for structures, _Alignof (T) is generally not equal to sizeof (T).
-
-However, sizeof (T) must always be divisible by _Alignof (T).
-This ensures that in an array of structures, every element will be allocated
-starting at an address which is divisible by _Alignof (T).
-
-////////////////////////////////////////////////////////////////////////////////
-
-struct s
-{
-    int x;
-    double y;
-    int z;
-};
-
-_Alignof x == 4, _Alignof y == 8 and _Alignof z == 4.
-
-So, _Alignof (struct s) == 8, since the maximum alignment requirement of its
-members is 8.
-
-This means that every variable of data type struct s will be allocated starting
-at an address which is divisible by 8.
-
-Let the starting address of a variable of data type struct s be 200.
-
-Since _Alignof x == 4, and 200 is divisible by 4, therefore x will be allocated
-at the addresses 200 to 203.
-
-Since _Alignof y == 8, and 204 is not divisible by 8, therefore the addresses
-204 to 207 will be wasted, and y will be allocated at the addresses 208 to 215.
-
-Since _Alignof z == 4, and 216 is divisible by 4, therefore z will be allocated
-at the addresses 216 to 219.
-
-Now, since sizeof (T) must always be divisible by _Alignof (T), which is 8,
-therefore the addresses 220 to 223 will be wasted.
-
-Finally, sizeof (struct s) will be 24.
-
-////////////////////////////////////////////////////////////////////////////////
-
-Sometimes, rearranging the members of a structure may reduce its size.
-
-For eg., let struct s be written in the following manner -
-
-struct s
-{
-    int x;
-    int z;
-    double y;
-};
-
-_Alignof x == 4, _Alignof z == 4 and _Alignof y == 8.
-
-So, _Alignof (struct s) == 8, since the maximum alignment requirement of its
-members is 8.
-
-Let the starting address of a variable of data type struct s be 200.
-
-Since _Alignof x == 4, and 200 is divisible by 4, therefore x will be allocated
-at the addresses 200 to 203.
-
-Since _Alignof z == 4, and 204 is divisible by 4, therefore z will be allocated
-at the addresses 204 to 207.
-
-Since _Alignof y == 8, and 208 is divisible by 8, therefore y will be allocated
-at the addresses 208 to 215.
-
-Finally, sizeof (struct s) will be 16.
-
-*/
