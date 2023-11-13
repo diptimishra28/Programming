@@ -1,9 +1,62 @@
-// #include <stdio.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdbool.h>
 
-// int main(void)
-// {
-//     printf("%zu\n", sizeof"hello");
-// }
+int my_strlen(const char*);
+void my_gets(char *);
+
+int main(void)
+{
+    printf("sizeof \"hello\" - %zu\n", sizeof "hello");
+    // printf("strlen(\"hello\") - %zu\n", strlen("hello"));
+    printf("my_strlen(\"hello\") - %d\n\n", my_strlen("hello"));
+
+    printf("char arr[] = \"hello world\";\n");
+    char arr[] = "hello world";
+
+    printf("sizeof arr - %zu\n", sizeof arr);
+    printf("my_strlen(arr) - %d\n\n", my_strlen(arr));
+
+    printf("arr[5] = '\\0';\n");
+    arr[5] = '\0';
+
+    printf("sizeof arr - %zu\n", sizeof arr);
+    printf("my_strlen(arr) - %d\n\n", my_strlen(arr));
+
+    printf("char arr2[1000];\n");
+    char arr2[1000];
+
+    printf("gets(arr2);\n");
+    gets(arr2);
+
+    printf("sizeof arr2 - %zu\n", sizeof arr2);
+    printf("my_strlen(arr2) - %d\n\n", my_strlen(arr2));
+
+    printf("my_gets(arr2);\n");
+    my_gets(arr2);
+
+    printf("sizeof arr2 - %zu\n", sizeof arr2);
+    printf("my_strlen(arr2) - %d\n", my_strlen(arr2));
+
+    return 0;
+}
+
+int my_strlen(const char* str)
+{
+    int i = 0;
+
+    while (str[i] != '\0')
+    {
+        ++i;
+    }
+
+    return i;
+}
+
+void my_gets(char* str)
+{
+    
+}
 
 /*
 
@@ -29,6 +82,7 @@
  * The data type of "hello" is char[6].
  * In printf("%zu\n", sizeof "hello");, "hello" isn't converted to a pointer
    because sizeof is an exception.
+ * In func("hello"), "hello" is converted to a pointer to its first element.
 
  * So, in C, a string is a special case of a char array, i.e. a string is a char
    array with a null character ('\0') at the end.
@@ -42,32 +96,19 @@
    (stack memory) are 'a', 'b', 'c', 'd' and '\0', and there is no extra copy in
    the data memory.
 
+ * char arr[] = "hello";
+   In strlen("hello"), the loop runs over the array of the data memory.
+   In strlen(arr), the loop runs over the array of the stack memory.
+
+ * The gets() function reads an entire line upto the newline character (without
+   skipping leading whitespaces) and discards the newline character after
+   consuming it.
+   This is different from scanf("%d"), scanf("%f"), scanf("%lf"), etc., where
+   the leading whitespaces are skipped, and the newline character remains in the
+   input buffer.
+ * The gets() function has been deprecated, but it doesn't matter because we
+   will not be using C's way of handling strings.
+
  */
 
-#include <stdio.h>
-#include <string.h>
 
-int my_strlen(char*);
-
-int main(void)
-{
-    printf("Size of the array storing \"hello\" in data memory - %zu\n",
-           sizeof "hello");
-
-    // printf("Number of characters in \"hello\" - %zu\n", strlen("hello"));
-    printf("Number of characters in \"hello\" - %d\n", my_strlen("hello"));
-
-    return 0;
-}
-
-int my_strlen(char* str)
-{
-    int i = 0;
-
-    while (str[i] != '\0')
-    {
-        ++i;
-    }
-
-    return i;
-}
