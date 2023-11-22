@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-// #include <stdbool.h>
+#include <stdbool.h>
 
 // Here, const is used to remove the warning.
 // const will be taught later.
