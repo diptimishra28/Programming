@@ -18,6 +18,7 @@ void String_assign_using_String(String*, String*);
 void String_add_using_char(String*, char);
 void String_add_at_index_using_char(String*, int, char);
 void String_add_using_String(String*, String*);
+void String_clear(String*);
 void String_assign_using_user_input(String*);
 void String_destroy(String*);
 
@@ -47,6 +48,13 @@ int main(void)
     printf("---------------------------------------------------------------\n");
 
     String_add_at_index_using_char(&s2, 5, ' ');
+
+    String_print(&s2);
+    putchar('\n');
+
+    printf("---------------------------------------------------------------\n");
+
+    String_add_using_String(&s2, &s1);
 
     String_print(&s2);
     putchar('\n');
@@ -163,6 +171,74 @@ void String_add_using_char(String* ptr, char c)
 
 void String_add_at_index_using_char(String* ptr, int i, char c)
 {
+    if ((i < 0) || (i > ptr->size))
+    {
+        printf("\n-------------------------------------------");
+        printf("\nString_add_at_index_using_char()");
+        printf("\nINDEX OUT OF BOUNDS, EXITING DUE TO FAILURE");
+        printf("\n-------------------------------------------\n");
+
+        exit(EXIT_FAILURE);
+    }
+
+    if (ptr->size == ptr->capacity)
+    {
+        ptr->capacity = ptr->capacity * 2;
+        ptr->arr = realloc(ptr->arr, ptr->capacity * sizeof (char));
+
+        if (ptr->arr == NULL)
+        {
+            printf("\n-------------------------------------");
+            printf("\nString_add_at_index_using_char()");
+            printf("\nOUT OF MEMORY, EXITING DUE TO FAILURE");
+            printf("\n-------------------------------------\n");
+
+            exit(EXIT_FAILURE);
+        }
+    }
+
+    for (int j = ptr->size - 1; j >= i; --j)
+    {
+        (ptr->arr)[j + 1] = (ptr->arr)[j];
+    }
+
+    (ptr->arr)[i] = c;
+    ++(ptr->size);
+}
+
+void String_add_using_String(String* ptr_dst, String* ptr_src)
+{
+    if (ptr_dst->size + ptr_src->size > ptr_dst->capacity)
+    {
+        ptr_dst->capacity = ptr_dst->size + ptr_src->size;
+        ptr_dst->arr = realloc(ptr_dst->arr, ptr_dst->capacity * sizeof (char));
+
+        if (ptr_dst->arr == NULL)
+        {
+            printf("\n-------------------------------------");
+            printf("\nString_add_using_String()");
+            printf("\nOUT OF MEMORY, EXITING DUE TO FAILURE");
+            printf("\n-------------------------------------\n");
+
+            exit(EXIT_FAILURE);
+        }
+    }
+
+    for (int i = ptr_dst->size, j = 0; j < ptr_src->size; ++i, ++j)
+    {
+        (ptr_dst->arr)[i] = (ptr_src->arr)[j];
+    }
+
+    ptr_dst->size += ptr_src->size;
+}
+
+void String_clear(String* ptr)
+{
+}
+
+void String_assign_using_user_input(String* ptr)
+{
+    // String_clear() will be used in this function.
 }
 
 void String_destroy(String* ptr)
