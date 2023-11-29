@@ -20,6 +20,12 @@ void String_add_at_index_using_char(String*, int, char);
 void String_add_using_String(String*, String*);
 void String_clear(String*);
 void String_assign_using_user_input(String*);
+bool String_is_empty(String*);
+int String_size(String*);
+char String_char_at(String*, int);
+void String_set_char_at(String*, int, char);
+bool String_contains_char(String*, char);
+bool String_contains_String(String*, String*);
 void String_destroy(String*);
 
 int main(void)
@@ -58,6 +64,24 @@ int main(void)
 
     String_print(&s2);
     putchar('\n');
+
+    printf("---------------------------------------------------------------\n");
+
+    printf("Enter a string: ");
+    String_assign_using_user_input(&s2);
+
+    printf("Your string: ");
+    String_print(&s2);
+    putchar('\n');
+
+    printf("---------------------------------------------------------------\n");
+
+    String_assign_using_null_terminated_array_of_char(&s1, "hello");
+    String_assign_using_null_terminated_array_of_char(&s2, "ell");
+    printf(String_contains_String(&s1, &s2) ? "true\n" : "false\n");
+
+    String_assign_using_null_terminated_array_of_char(&s2, "world");
+    printf(String_contains_String(&s1, &s2) ? "true\n" : "false\n");
 
     printf("---------------------------------------------------------------\n");
 
@@ -234,17 +258,116 @@ void String_add_using_String(String* ptr_dst, String* ptr_src)
 
 void String_clear(String* ptr)
 {
+    ptr->arr = realloc(ptr->arr, sizeof (char));
+
+    if (ptr->arr == NULL)
+    {
+        printf("\n-------------------------------------");
+        printf("\nString_clear()");
+        printf("\nOUT OF MEMORY, EXITING DUE TO FAILURE");
+        printf("\n-------------------------------------\n");
+
+        exit(EXIT_FAILURE);
+    }
+
+    ptr->size = 0;
+    ptr->capacity = 1;
 }
 
 void String_assign_using_user_input(String* ptr)
 {
-    // String_clear() will be used in this function.
+    String_clear(ptr);
+
+    while (true)
+    {
+        int c = getchar();
+
+        if ((c == '\n') || (c == EOF))
+        {
+            break;
+        }
+
+        if (ptr->size == ptr->capacity)
+        {
+            ptr->capacity = ptr->capacity * 2;
+            ptr->arr = realloc(ptr->arr, ptr->capacity * sizeof (char));
+
+            if (ptr->arr == NULL)
+            {
+                printf("\n-------------------------------------");
+                printf("\nString_assign_using_user_input()");
+                printf("\nOUT OF MEMORY, EXITING DUE TO FAILURE");
+                printf("\n-------------------------------------\n");
+
+                exit(EXIT_FAILURE);
+            }
+        }
+
+        (ptr->arr)[ptr->size] = (char) c;
+        ++(ptr->size);
+    }
+}
+
+bool String_is_empty(String* ptr)
+{
+    return ptr->size == 0;
+}
+
+int String_size(String* ptr)
+{
+    return ptr->size;
+}
+
+char String_char_at(String* ptr, int i)
+{
+    if ((i < 0) || (i >= ptr->size))
+    {
+        printf("\n-------------------------------------------");
+        printf("\nString_char_at()");
+        printf("\nINDEX OUT OF BOUNDS, EXITING DUE TO FAILURE");
+        printf("\n-------------------------------------------\n");
+
+        exit(EXIT_FAILURE);
+    }
+
+    return (ptr->arr)[i];
+}
+
+void String_set_char_at(String* ptr, int i, char c)
+{
+    if ((i < 0) || (i >= ptr->size))
+    {
+        printf("\n-------------------------------------------");
+        printf("\nString_set_char_at()");
+        printf("\nINDEX OUT OF BOUNDS, EXITING DUE TO FAILURE");
+        printf("\n-------------------------------------------\n");
+
+        exit(EXIT_FAILURE);
+    }
+
+    (ptr->arr)[i] = c;
+}
+
+bool String_contains_char(String* ptr, char c)
+{
+    for (int i = 0; i < ptr->size; ++i)
+	{
+        if ((ptr->arr)[i] == c)
+		{
+		    return true;
+        }
+    }
+
+    return false;
+}
+
+bool String_contains_String(String* ptr_dst, String* ptr_src)
+{
+    
 }
 
 void String_destroy(String* ptr)
 {
     free(ptr->arr);
 }
-
-
 
