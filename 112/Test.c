@@ -26,6 +26,18 @@ char String_char_at(String*, int);
 void String_set_char_at(String*, int, char);
 bool String_contains_char(String*, char);
 bool String_contains_String(String*, String*);
+int String_index_of_char(String*, char);
+int String_index_of_String(String*, String*);
+int String_last_index_of_char(String*, char);
+int String_last_index_of_String(String*, String*);
+int String_next_index_of_char(String*, char, int);
+int String_next_index_of_String(String*, String*, int);
+void String_substring(String*, String*, int, int); // i inclusive and j exclusive
+void String_remove(String*, int);
+void String_remove_range(String*, int, int); // i inclusive and j exclusive
+int String_compare_to(String*, String*);
+int String_compare_to_ignore_case(String*, String*);
+char* String_to_null_terminated_array_of_char(String*); // to_array_of_char() and to_String() in Java
 void String_destroy(String*);
 
 int main(void)
@@ -76,12 +88,34 @@ int main(void)
 
     printf("---------------------------------------------------------------\n");
 
-    String_assign_using_null_terminated_array_of_char(&s1, "hello");
-    String_assign_using_null_terminated_array_of_char(&s2, "ell");
-    printf(String_contains_String(&s1, &s2) ? "true\n" : "false\n");
+    printf("Enter the destination string: ");
+    String_assign_using_user_input(&s1);
 
-    String_assign_using_null_terminated_array_of_char(&s2, "world");
-    printf(String_contains_String(&s1, &s2) ? "true\n" : "false\n");
+    printf("Enter the source string: ");
+    String_assign_using_user_input(&s2);
+
+    // printf(String_contains_String(&s1, &s2) ? "true\n" : "false\n");
+
+    // printf("%d\n", String_index_of_String(&s1, &s2));
+
+    // printf("%d\n", String_last_index_of_String(&s1, &s2));
+
+    int index = 0;
+
+    while (true)
+    {
+        index = String_next_index_of_String(&s1, &s2, index);
+
+        if (index == - 1)
+        {
+            break;
+        }
+
+        printf("%d ", index);
+        ++index;
+    }
+
+    putchar('\n');
 
     printf("---------------------------------------------------------------\n");
 
@@ -363,7 +397,168 @@ bool String_contains_char(String* ptr, char c)
 
 bool String_contains_String(String* ptr_dst, String* ptr_src)
 {
-    
+    for (int i = 0; i <= ptr_dst->size - ptr_src->size; ++i)
+    {
+        int j = 0;
+
+        while (j < ptr_src->size)
+        {
+            if ((ptr_dst->arr)[i + j] != (ptr_src->arr)[j])
+            {
+                break;
+            }
+
+            ++j;
+        }
+
+        if (j == ptr_src->size)
+        {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+int String_index_of_char(String* ptr, char c)
+{
+    for (int i = 0; i < ptr->size; ++i)
+	{
+        if ((ptr->arr)[i] == c)
+		{
+		    return i;
+        }
+    }
+
+    return -1;
+}
+
+int String_index_of_String(String* ptr_dst, String* ptr_src)
+{
+    for (int i = 0; i <= ptr_dst->size - ptr_src->size; ++i)
+    {
+        int j = 0;
+
+        while (j < ptr_src->size)
+        {
+            if ((ptr_dst->arr)[i + j] != (ptr_src->arr)[j])
+            {
+                break;
+            }
+
+            ++j;
+        }
+
+        if (j == ptr_src->size)
+        {
+            return i;
+        }
+    }
+
+    return -1;
+}
+
+int String_last_index_of_char(String* ptr, char c)
+{
+    for (int i = ptr->size - 1; i >= 0; --i)
+	{
+        if ((ptr->arr)[i] == c)
+		{
+		    return i;
+        }
+    }
+
+    return -1;
+}
+
+int String_last_index_of_String(String* ptr_dst, String* ptr_src)
+{
+    for (int i = ptr_dst->size - ptr_src->size; i >= 0; --i)
+    {
+        int j = 0;
+
+        while (j < ptr_src->size)
+        {
+            if ((ptr_dst->arr)[i + j] != (ptr_src->arr)[j])
+            {
+                break;
+            }
+
+            ++j;
+        }
+
+        if (j == ptr_src->size)
+        {
+            return i;
+        }
+    }
+
+    return -1;
+}
+
+int String_next_index_of_char(String* ptr, char c, int start)
+{
+    if (start < 0)
+    {
+        printf("\n-------------------------------------------");
+        printf("\nString_next_index_of_char()");
+        printf("\nINDEX OUT OF BOUNDS, EXITING DUE TO FAILURE");
+        printf("\n-------------------------------------------\n");
+
+        exit(EXIT_FAILURE);
+    }
+
+    for (int i = start; i < ptr->size; ++i)
+	{
+        if ((ptr->arr)[i] == c)
+		{
+		    return i;
+        }
+    }
+
+    return -1;
+}
+
+int String_next_index_of_String(String* ptr_dst, String* ptr_src, int start)
+{
+    if (start < 0)
+    {
+        printf("\n-------------------------------------------");
+        printf("\nString_next_index_of_String()");
+        printf("\nINDEX OUT OF BOUNDS, EXITING DUE TO FAILURE");
+        printf("\n-------------------------------------------\n");
+
+        exit(EXIT_FAILURE);
+    }
+
+    for (int i = start; i <= ptr_dst->size - ptr_src->size; ++i)
+    {
+        int j = 0;
+
+        while (j < ptr_src->size)
+        {
+            if ((ptr_dst->arr)[i + j] != (ptr_src->arr)[j])
+            {
+                break;
+            }
+
+            ++j;
+        }
+
+        if (j == ptr_src->size)
+        {
+            return i;
+        }
+    }
+
+    return -1;
+}
+
+// i is inclusive and j is exclusive.
+void String_substring(String* ptr_dst, String* ptr_src, int i, int j)
+{
+    // Similar to String_assign_using_String().
+    // Add bounds-checking.
 }
 
 void String_destroy(String* ptr)
