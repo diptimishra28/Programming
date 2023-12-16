@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 
 void calculate_area_and_perimeter(double*, double*, double, double);
