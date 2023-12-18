@@ -331,7 +331,7 @@ class My_String
         return -1;
     }
 
-    void substring(String* ptr_dst, String* ptr_src, int i, int j)
+    void substring(My_String ref_src, int i, int j)
     {
         if ((i >= j) || (i < 0) || (j > size))
     	{
@@ -345,7 +345,7 @@ class My_String
 
         for (int k = 0; k < size; ++k)
         {
-            (arr)[k] = (ref_src.arr)[i + k];
+            (arr)[k] = (ref_src.char_at(i + k));
         }
     }
 
@@ -353,7 +353,7 @@ class My_String
     {
         if ((i < 0) || (i >= size))
     	{
-
+            throw new IndexOutOfBoundsException();
     	}
 
     	for (int j = i + 1; j < size; ++j)
@@ -384,7 +384,7 @@ class My_String
         	(arr)[k - offset] = (arr)[k];
     	}
 
-    	ptr->size -= offset;
+    	size -= offset;
 
     	if (size < capacity / 2)
     	{
@@ -393,13 +393,13 @@ class My_String
     	}
     }
 
-    int compare_to(String ref_src)
+    int compare_to(My_String ref_src)
     {
         int i = 0;
 
-        while ((i < ref_src.size) && (i < size))
+        while ((i < ref_src.size()) && (i < size))
         {
-            if ((ref_src.arr)[i] != (arr)[i])
+            if ((ref_src.char_at(i)) != (arr)[i])
             {
                 break;
             }
@@ -442,25 +442,25 @@ class My_String
         }
     }
 
-    int compare_to_ignore_case(String* ptr_dst, String* ptr_src)
+    int compare_to_ignore_case(My_String ref_src)
     {
         int i = 0;
-        char c1, c2;
+        char c1 = 0 , c2 = 0;
 
-        while ((i < ref_src.size) && (i < ref_dst.size))
+        while ((i < ref_src.size) && (i < size))
         {
-            c1 = (ptr_src->arr)[i];
+            c1 = (ref_src.arr)[i];
 
             if ((c1 >= 'a') && (c1 <= 'z'))
             {
-                c1 = 'A' + (c1 - 'a');
+                c1 = (char)('A' + (c1 - 'a'));
             }
 
-            c2 = (ptr_dst->arr)[i];
+            c2 = (arr)[i];
 
             if ((c2 >= 'a') && (c2 <= 'z'))
             {
-                c2 = 'A' + (c2 - 'a');
+                c2 = (char)('A' + (c2 - 'a'));
             }
 
             if (c1 != c2)
@@ -471,17 +471,17 @@ class My_String
             ++i;
         }
 
-        if ((i == ptr_src->size) && (i == ptr_dst->size))
+        if ((i == ref_src.size) && (i == size))
         {
             return 0;
         }
 
-        else if (i == ptr_src->size)
+        else if (i == ref_src.size)
         {
             return -1;
         }
 
-        else if (i == ptr_dst->size)
+        else if (i == size)
         {
             return 1;
         }
@@ -507,7 +507,18 @@ class My_String
     }
 
     char[] to_array() // Not null-terminated.
-    String to_String()
+    {
+        char[] array = new char[size];
+
+        for (int i = 0; i < size; ++i)
+        {
+            array[i] = arr[i];
+        }
+
+        return array;
+    }
+
+    //String to_String()  bad me bhaiya btayenge
 
     }
 
@@ -519,7 +530,8 @@ class Test
 
         System.out.println("-------------------------------------------------");
 
-        My_String s1 = new My_String();
+        My_String s1;
+        s1 = new My_String();
 
         s1.assign("hello");
 
@@ -592,42 +604,42 @@ class Test
 
         System.out.println("-------------------------------------------------");
 
-    String_assign_using_null_terminated_array_of_char(&s1, "hello");
-    String_substring(&s2, &s1, 1, 4);
+    s1.assign("hello");
+    s2.substring(s1, 1, 4);
 
-    String_print(&s1);
-    putchar('\n');
+    s1.print();
+    System.out.println();
 
-    String_print(&s2);
-    putchar('\n');
+    s2.print();
+    System.out.println();
 
-    printf("---------------------------------------------------------------\n");
+    System.out.println("---------------------------------------------------------------");
 
-    String_assign_using_null_terminated_array_of_char(&s1, "hello world");
-    String_remove(&s1, 4);
+    s1.assign("hello world");
+    s1.remove(4);
 
-    String_print(&s1);
-    putchar('\n');
+    s1.print();
+    System.out.println();
 
-    printf("---------------------------------------------------------------\n");
+    System.out.println("---------------------------------------------------------------");
 
-    String_assign_using_null_terminated_array_of_char(&s1, "hello world");
-    String_remove_range(&s1, 4, 8);
+    s1.assign("hello world");
+    s1.remove(4, 8);
 
-    String_print(&s1);
-    putchar('\n');
+    s1.print();
+    System.out.println();
 
-    printf("---------------------------------------------------------------\n");
+    System.out.println("---------------------------------------------------------------");
 
-    printf("Enter the source string: ");
-    String_assign_using_user_input(&s1);
+    System.out.print("Enter the source string: ");
+    s1.assign(sc.nextLine());
 
-    printf("Enter the destination string: ");
-    String_assign_using_user_input(&s2);
+    System.out.print("Enter the destination string: ");
+    s2.assign(sc.nextLine());
 
-    printf("%d\n", String_compare_to(&s2, &s1));
-    printf("%d\n", String_compare_to_ignore_case(&s2, &s1));
+    System.out.println(s2.compare_to(s1));
+    System.out.println(s2.compare_to_ignore_case(s1));
 
-    printf("---------------------------------------------------------------\n");
+    System.out.println("---------------------------------------------------------------");
     }
 }
