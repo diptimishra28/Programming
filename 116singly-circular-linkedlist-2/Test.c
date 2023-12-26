@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 struct node
 {
@@ -37,24 +38,40 @@ int main(void)
         ptr_previous_node = ptr_current_node;
     }
 
+    ptr_previous_node->ptr_next_node = ptr_head_node;
+
     Node* ptr_current_node = ptr_head_node;
 
-    while (ptr_current_node != NULL)
+    while (true)
     {
         printf("%d ", ptr_current_node->value);
         ptr_current_node = ptr_current_node->ptr_next_node;
+
+        if (ptr_current_node == ptr_head_node)
+        {
+            break;
+        }
     }
 
     putchar('\n');
 
     ptr_current_node = ptr_head_node;
 
-    while (ptr_current_node != NULL)
+    while (true)
     {
         Node* ptr_temp = ptr_current_node;
         ptr_current_node = ptr_current_node->ptr_next_node;
         free(ptr_temp);
+
+        if (ptr_current_node == ptr_head_node)
+        {
+            break;
+        }
     }
 
 	return 0;
 }
+
+
+
+
