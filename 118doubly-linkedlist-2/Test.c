@@ -26,8 +26,9 @@ int main(void)
     scanf("%d", &(ptr_head_node->value));
 
     ptr_head_node->ptr_next_node = NULL;
+    ptr_head_node->ptr_previous_node = NULL;
 
-    ptr_previous_node = ptr_head_node;
+    Node* ptr_previous_node = ptr_head_node;
 
     for (int i = 1; i < n; ++i)
     {
@@ -36,6 +37,7 @@ int main(void)
 
         ptr_previous_node->ptr_next_node = ptr_current_node;
         ptr_current_node->ptr_next_node = NULL;
+        ptr_current_node->ptr_previous_node = ptr_previous_node;
 
         ptr_previous_node = ptr_current_node;
     }
@@ -46,6 +48,16 @@ int main(void)
     {
         printf("%d ", ptr_current_node->value);
         ptr_current_node = ptr_current_node->ptr_next_node;
+    }
+
+    putchar('\n');
+
+    ptr_current_node = ptr_previous_node;
+
+    while (ptr_current_node != NULL)
+    {
+        printf("%d ", ptr_current_node->value);
+        ptr_current_node = ptr_current_node->ptr_previous_node;
     }
 
     putchar('\n');
