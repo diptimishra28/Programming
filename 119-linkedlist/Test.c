@@ -27,6 +27,7 @@ typedef struct linked_list_int Linked_List_int;
 void create_empty_Linked_List_int(Linked_List_int*);
 bool Linked_List_int_is_empty(Linked_List_int*);
 void destroy_Linked_List_int(Linked_List_int*);
+void Linked_List_int_add(Linked_List_int*, int);
 
 int main(void)
 {
@@ -37,11 +38,11 @@ int main(void)
 
 	printf(Linked_List_int_is_empty(&a1) ? "true\n" : "false\n");
 
-	// printf("---------------------------------------------------------------\n");
+	printf("---------------------------------------------------------------\n");
 
-	// Array_List_int_add(&a1, 10);
-	// Array_List_int_add(&a1, 20);
-	// Array_List_int_add(&a1, 30);
+	Linked_List_int_add(&a1, 10);
+	Linked_List_int_add(&a1, 20);
+	Linked_List_int_add(&a1, 30);
 
 	// printf("%d\n", Array_List_int_get(&a1, 1));
 
@@ -191,4 +192,39 @@ void destroy_Linked_List_int(Linked_List_int* ptr)
         ptr->ptr_head_node = ptr->ptr_head_node->ptr_next_node;
         free(ptr_temp);
     }
+}
+
+void Linked_List_int_add(Linked_List_int* ptr, int n)
+{
+	Node* ptr_new_node = malloc(sizeof (Node));
+
+	if (ptr_new_node == NULL)
+    {
+        printf("\n-------------------------------------");
+        printf("\nLinked_List_int_add()");
+        printf("\nOUT OF MEMORY, EXITING DUE TO FAILURE");
+        printf("\n-------------------------------------\n");
+        exit(EXIT_FAILURE);
+    }
+
+	ptr_new_node->value = n;
+
+	ptr_new_node->ptr_next_node = NULL;
+
+	if (ptr->size == 0)
+	{
+		ptr_new_node->ptr_previous_node = NULL;
+		ptr->ptr_head_node = ptr_new_node;
+		ptr->ptr_tail_node = ptr_new_node;
+	}
+
+	else
+	{
+		ptr->ptr_tail_node->ptr_next_node = ptr_new_node;
+		ptr_new_node->ptr_previous_node = ptr->ptr_tail_node;
+		ptr->ptr_tail_node = ptr_new_node;
+    }
+
+    ++(ptr->size);
+
 }
