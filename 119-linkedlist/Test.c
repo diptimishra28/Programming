@@ -271,7 +271,7 @@ int Linked_List_int_get(Linked_List_int* ptr, int i)
 
 	Node* ptr_current_node;
 
-	if (i < ptr->size / 2)
+	if (i <= ptr->size / 2)
 	{
 		ptr_current_node = ptr->ptr_head_node;
 
@@ -301,7 +301,7 @@ int Linked_List_int_size(Linked_List_int* ptr)
 
 void Linked_List_int_print_forward(Linked_List_int* ptr)
 {
-	
+
 }
 
 void Linked_List_int_print_backward(Linked_List_int* ptr)
