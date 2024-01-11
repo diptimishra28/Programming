@@ -33,8 +33,12 @@ void Linked_List_int_set(Linked_List_int*, int, int);
 // Skip Linked_List_int_remove_range() - Too complicated.
 void destroy_Linked_List_int(Linked_List_int*);
 void Linked_List_int_add_at_index(Linked_List_int*, int, int);
-void Linked_List_int_print_forward(Linked_List_int* ptr);
-void Linked_List_int_print_backward(Linked_List_int* ptr);
+void Linked_List_int_print_forwards(Linked_List_int* ptr);
+void Linked_List_int_print_backwards(Linked_List_int* ptr);
+void Linked_List_int_clear(Linked_List_int* ptr);
+bool Linked_List_int_contains(Linked_List_int*, int);
+int Linked_List_int_index_of(Linked_List_int*, int);
+int Linked_List_int_last_index_of(Linked_List_int*, int);
 
 int main(void)
 {
@@ -61,140 +65,72 @@ int main(void)
 
 	printf("---------------------------------------------------------------\n");
 
-	for (int i = 0; i < Linked_List_int_size(&a1); ++i)
-	{
-    	printf("%d ", Linked_List_int_get(&a1, i));
-	}
-
-	putchar('\n');
-
-	for (int i = Linked_List_int_size(&a1) - 1; i >= 0; --i)
-	{
-    	printf("%d ", Linked_List_int_get(&a1, i));
-	}
-
-	putchar('\n');
+	Linked_List_int_print_forwards(&a1);
+	Linked_List_int_print_backwards(&a1);
 
 	printf("---------------------------------------------------------------\n");
 
 	Linked_List_int_set(&a1, 2, 40);
 
-	for (int i = 0; i < Linked_List_int_size(&a1); ++i)
-	{
-    	printf("%d ", Linked_List_int_get(&a1, i));
-	}
-
-	putchar('\n');
-
-	for (int i = Linked_List_int_size(&a1) - 1; i >= 0; --i)
-	{
-    	printf("%d ", Linked_List_int_get(&a1, i));
-	}
-
-	putchar('\n');
+	Linked_List_int_print_forwards(&a1);
+	Linked_List_int_print_backwards(&a1);
 
 	printf("---------------------------------------------------------------\n");
 
 	Linked_List_int_add_at_index(&a1, 1, 50);
 
-	for (int i = 0; i < Linked_List_int_size(&a1); ++i)
-	{
-    	printf("%d ", Linked_List_int_get(&a1, i));
-	}
-
-	putchar('\n');
-
-	for (int i = Linked_List_int_size(&a1) - 1; i >= 0; --i)
-	{
-    	printf("%d ", Linked_List_int_get(&a1, i));
-	}
-
-	putchar('\n');
+	Linked_List_int_print_forwards(&a1);
+	Linked_List_int_print_backwards(&a1);
 
 	printf("---------------------------------------------------------------\n");
 
-	// Array_List_int_clear(&a1);
+	Linked_List_int_clear(&a1);
 
-	// printf("%d\n", Array_List_int_size(&a1));
+	//create_empty_Linked_List_int(ptr);
 
-	// printf("---------------------------------------------------------------\n");
 
-	// Array_List_int_add(&a1, 10);
-	// Array_List_int_add(&a1, 20);
-	// Array_List_int_add(&a1, 30);
-	// Array_List_int_add(&a1, 40);
-	// Array_List_int_add(&a1, 10);
-	// Array_List_int_add(&a1, 20);
+	printf("%d\n", Linked_List_int_size(&a1));
 
-	// for (int i = 0; i < Array_List_int_size(&a1); ++i)
-	// {
-    // 	printf("%d ", Array_List_int_get(&a1, i));
-	// }
+	printf("---------------------------------------------------------------\n");
 
-	// putchar('\n');
+	Linked_List_int_add(&a1, 10);
+	Linked_List_int_add(&a1, 20);
+	Linked_List_int_add(&a1, 30);
+	Linked_List_int_add(&a1, 40);
+	Linked_List_int_add(&a1, 50);
+	Linked_List_int_add(&a1, 60);
 
-	// for (int i = Linked_List_int_size(&a1) - 1; i >= 0; --i)
-	// {
-    // 	printf("%d ", Linked_List_int_get(&a1, i));
-	// }
+	Linked_List_int_print_forwards(&a1);
+	Linked_List_int_print_backwards(&a1);
 
-	// putchar('\n');
+	printf(Linked_List_int_contains(&a1, 30) ? "true\n" : "false\n");
+	printf(Linked_List_int_contains(&a1, 50) ? "true\n" : "false\n");
 
-	// printf(Array_List_int_contains(&a1, 30) ? "true\n" : "false\n");
+	printf("---------------------------------------------------------------\n");
 
-	// printf(Array_List_int_contains(&a1, 50) ? "true\n" : "false\n");
+	Linked_List_int_print_forwards(&a1);
+	Linked_List_int_print_backwards(&a1);
 
-	// printf("---------------------------------------------------------------\n");
+	printf("%d\n", Linked_List_int_index_of(&a1, 10));
+	printf("%d\n", Linked_List_int_index_of(&a1, 30));
+	printf("%d\n", Linked_List_int_index_of(&a1, 50));
 
-	// for (int i = 0; i < Array_List_int_size(&a1); ++i)
-	// {
-    // 	printf("%d ", Array_List_int_get(&a1, i));
-	// }
+	printf("---------------------------------------------------------------\n");
 
-	// putchar('\n');
+	Linked_List_int_print_forwards(&a1);
+	Linked_List_int_print_backwards(&a1);
 
-	// for (int i = Linked_List_int_size(&a1) - 1; i >= 0; --i)
-	// {
-    // 	printf("%d ", Linked_List_int_get(&a1, i));
-	// }
+	printf("%d\n", Linked_List_int_last_index_of(&a1, 10));
+	printf("%d\n", Linked_List_int_last_index_of(&a1, 30));
+	printf("%d\n", Linked_List_int_last_index_of(&a1, 50));
 
-	// putchar('\n');
+	printf("---------------------------------------------------------------\n");
 
-	// printf("%d\n", Array_List_int_index_of(&a1, 10));
+	// Linked_List_int_remove(&a1, 3);
 
-	// printf("%d\n", Array_List_int_index_of(&a1, 30));
+	// int* array = Linked_List_int_to_array(&a1);
 
-	// printf("%d\n", Array_List_int_index_of(&a1, 50));
-
-	// printf("---------------------------------------------------------------\n");
-
-	// for (int i = 0; i < Array_List_int_size(&a1); ++i)
-	// {
-    // 	printf("%d ", Array_List_int_get(&a1, i));
-	// }
-
-	// putchar('\n');
-
-	// for (int i = Linked_List_int_size(&a1) - 1; i >= 0; --i)
-	// {
-    // 	printf("%d ", Linked_List_int_get(&a1, i));
-	// }
-
-	// putchar('\n');
-
-	// printf("%d\n", Array_List_int_last_index_of(&a1, 10));
-
-	// printf("%d\n", Array_List_int_last_index_of(&a1, 30));
-
-	// printf("%d\n", Array_List_int_last_index_of(&a1, 50));
-
-	// printf("---------------------------------------------------------------\n");
-
-	// Array_List_int_remove(&a1, 3);
-
-	// int* array = Array_List_int_to_array(&a1);
-
-	// for (int i = 0; i < Array_List_int_size(&a1); ++i)
+	// for (int i = 0; i < Linked_List_int_size(&a1); ++i)
 	// {
     // 	printf("%d ", array[i]);
 	// }
@@ -208,7 +144,6 @@ int main(void)
 	destroy_Linked_List_int(&a1);
 
 	return 0;
-
 }
 
 void create_empty_Linked_List_int(Linked_List_int* ptr)
@@ -299,14 +234,33 @@ int Linked_List_int_size(Linked_List_int* ptr)
 	return ptr->size;
 }
 
-void Linked_List_int_print_forward(Linked_List_int* ptr)
+void Linked_List_int_print_forwards(Linked_List_int* ptr)
 {
+	Node* ptr_current_node = ptr->ptr_head_node;
+
+	for (int i = 0; i < ptr->size; ++i)
+	{
+		printf("%d ", ptr_current_node->value);
+
+		ptr_current_node = ptr_current_node->ptr_next_node;
+	}
+
+	putchar('\n');
 
 }
 
-void Linked_List_int_print_backward(Linked_List_int* ptr)
+void Linked_List_int_print_backwards(Linked_List_int* ptr)
 {
+	Node* ptr_current_node = ptr->ptr_tail_node;
 
+	for (int i = 0; i < ptr->size; ++i)
+	{
+		printf("%d ", ptr_current_node->value);
+
+		ptr_current_node = ptr_current_node->ptr_previous_node;
+	}
+
+	putchar('\n');
 }
 
 void Linked_List_int_set(Linked_List_int* ptr, int i, int n)
@@ -441,10 +395,91 @@ void Linked_List_int_add_at_index(Linked_List_int* ptr, int i, int n)
 
 			ptr_new_node->ptr_next_node = ptr_current_node->ptr_next_node;
 			ptr_new_node->ptr_previous_node = ptr_current_node;
-			ptr_current_node->ptr_next_node = ptr_new_node;
 			ptr_current_node->ptr_next_node->ptr_previous_node = ptr_new_node;
+			ptr_current_node->ptr_next_node = ptr_new_node;
 		}
 	}
 
 	++(ptr->size);
+}
+
+void Linked_List_int_clear(Linked_List_int* ptr)
+{
+  Node* ptr_new_node = malloc(sizeof (Node));
+
+	if (ptr_new_node == NULL)
+	{
+    	printf("\n-------------------------------------");
+    	printf("\nLinked_List_int_add()");
+    	printf("\nOUT OF MEMORY, EXITING DUE TO FAILURE");
+    	printf("\n-------------------------------------\n");
+
+    	exit(EXIT_FAILURE);
+    }
+
+	ptr->size = 0;
+	ptr_new_node->ptr_next_node = NULL;
+}
+
+bool Linked_List_int_contains(Linked_List_int* ptr, int n)
+{
+	Node* ptr_current_node = ptr->ptr_head_node;
+
+	// for (int i = 0; i < ptr->size; ++i)
+	// {
+    //     if (ptr_current_node->value == n)
+	// 	{
+	// 	    return true;
+    //     }
+	//	ptr_current_node = ptr_current_node->ptr_next_node;
+    // }
+
+	// return false;
+
+	while (ptr_current_node != NULL)
+	{
+		if (ptr_current_node->value == n)
+		{
+		    return true;
+        }
+
+		ptr_current_node = ptr_current_node->ptr_next_node;
+    }
+
+	return false;
+ 
+}
+
+int Linked_List_int_index_of(Linked_List_int* ptr , int n)
+{
+	Node* ptr_current_node = ptr->ptr_head_node;
+
+	for (int i = 0; i < ptr->size; ++i)
+    {
+        if (ptr_current_node->value == n)
+        {
+            return i;
+        }
+
+		ptr_current_node = ptr_current_node->ptr_next_node;
+    }
+
+    return -1;
+}
+
+int Linked_List_int_last_index_of(Linked_List_int* ptr, int n)
+{
+	Node* ptr_current_node = ptr->ptr_tail_node;
+
+	for (int i = ptr->size - 1; i >= 0;  --i)
+    {
+        if (ptr_current_node->value == n)
+        {
+            return i;
+        }
+
+		ptr_current_node = ptr_current_node->ptr_previous_node;
+    }
+
+    return -1;
 }
