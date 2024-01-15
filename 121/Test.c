@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int sum(int n);
+int fact(int n);
 
 int main(void)
 {
@@ -8,20 +8,20 @@ int main(void)
     printf("Enter a non negative integer: ");
     scanf("%d", &n);
 
-    printf("Sum = %d\n", sum(n));
+    printf("Factorial = %d\n", fact(n));
 
     return 0;
 }
 
-int sum(int n)
+int fact(int n)
 {
-    if (n == 1)
+    if (n == 0)
     {
         return 1;
     }
 
     else
     {
-        return n + sum(n - 1);
+        return n * fact(n - 1);
     }
 }
