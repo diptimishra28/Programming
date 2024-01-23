@@ -1,3 +1,5 @@
+// PALINDROME //
+
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
@@ -39,153 +41,36 @@ int String_compare_to(String*, String*);
 int String_compare_to_ignore_case(String*, String*);
 char* String_to_null_terminated_array_of_char(String*);
 void String_destroy(String*);
+bool String_is_palindrome(String*, int, int);
 
 int main(void)
 {
-    printf("---------------------------------------------------------------\n");
-
     String s1;
     String_create_empty(&s1);
 
-    String_assign_using_null_terminated_array_of_char(&s1, "hello");
-
-    String_print(&s1);
-    putchar('\n');
-
-    printf("---------------------------------------------------------------\n");
-
-    String s2;
-    String_create_empty(&s2);
-
-    String_assign_using_String(&s2, &s1);
-    String_add_using_char(&s2, '!');
-
-    String_print(&s2);
-    putchar('\n');
-
-    printf("---------------------------------------------------------------\n");
-
-    String_add_at_index_using_char(&s2, 5, ' ');
-
-    String_print(&s2);
-    putchar('\n');
-
-    printf("---------------------------------------------------------------\n");
-
-    String_add_using_String(&s2, &s1);
-
-    String_print(&s2);
-    putchar('\n');
-
-    printf("---------------------------------------------------------------\n");
-
-    printf("Enter a string: ");
-    String_assign_using_user_input(&s2);
-
-    printf("Your string: ");
-    String_print(&s2);
-    putchar('\n');
-
-    printf("---------------------------------------------------------------\n");
-
-    printf("Enter the destination string: ");
+    printf("Enter a string : ");
     String_assign_using_user_input(&s1);
 
-    printf("Enter the source string: ");
-    String_assign_using_user_input(&s2);
-
-    printf(String_contains_String(&s1, &s2) ? "true\n" : "false\n");
-
-    printf("%d\n", String_index_of_String(&s1, &s2));
-
-    printf("%d\n", String_last_index_of_String(&s1, &s2));
-
-    int index = 0;
-
-    while (true)
-    {
-        index = String_next_index_of_String(&s1, &s2, index);
-
-        if (index == - 1)
-        {
-            break;
-        }
-
-        printf("%d ", index);
-        ++index;
-    }
-
-    putchar('\n');
-
-    printf("---------------------------------------------------------------\n");
-
-    String_assign_using_null_terminated_array_of_char(&s1, "hello");
-    String_assign_using_substring(&s2, &s1, 1, 4);
-
-    String_print(&s1);
-    putchar('\n');
-
-    String_print(&s2);
-    putchar('\n');
-
-    printf("---------------------------------------------------------------\n");
-
-    String_assign_using_null_terminated_array_of_char(&s1, "hello world");
-    String_remove(&s1, 4);
-
-    String_print(&s1);
-    putchar('\n');
-
-    printf("---------------------------------------------------------------\n");
-
-    String_assign_using_null_terminated_array_of_char(&s1, "hello world");
-    String_remove_range(&s1, 4, 8);
-
-    String_print(&s1);
-    putchar('\n');
-
-    printf("---------------------------------------------------------------\n");
-
-    printf("Enter the source string: ");
-    String_assign_using_user_input(&s1);
-
-    printf("Enter the destination string: ");
-    String_assign_using_user_input(&s2);
-
-    printf("%d\n", String_compare_to(&s2, &s1));
-    printf("%d\n", String_compare_to_ignore_case(&s2, &s1));
-
-    printf("---------------------------------------------------------------\n");
+    printf(String_is_palindrome(&s1, 0, String_size(&s1) - 1) ? "true\n" : "false\n");
 
     String_destroy(&s1);
-    String_destroy(&s2);
 
     return 0;
-
-    //{
-	// String** arr = malloc(3 * sizeof (String*));
-
-	// for (int i = 0; i < 3; ++i)
-	// {
-    // 	arr[i] = malloc(sizeof (String));
-    // 	String_create_empty(arr[i]);
-	// }
-
-	// String_assign_using_null_terminated_array_of_char(arr[0], "hello");
-	// String_assign_using_null_terminated_array_of_char(arr[1], "world");
-	// String_assign_using_null_terminated_array_of_char(arr[2], "hi");
-
-	// for (int i = 0; i < 3; ++i)
-	// {
-    // 	String_print(arr[i]);
-    // 	putchar('\n');
-
-    // 	String_destroy(arr[i]);
-    // 	free(arr[i]);
-	// }
-
-	// free(arr);
 }
+
+bool String_is_palindrome(String* ptr, int i, int j)
+{
+    if (i >= j)
+    {
+        return true;
+    }
+
+    else
+    {
+        return ((String_char_at(ptr, i) == String_char_at(ptr, j)) && String_is_palindrome(ptr, i + 1, j - 1));
+    }
+}
+
 
 void String_create_empty(String* ptr)
 {
