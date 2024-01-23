@@ -36,15 +36,17 @@ int max(int* arr, int size, int i)
     {
         int temp = max(arr, size, i + 1);
 
-        if (arr[i] >= temp)
-        {
-            return arr[i];
-        }
+        return ((arr[i] >= temp) ? arr[i] : temp);
 
-        else
-        {
-            return temp;
-        }
+        // if (arr[i] >= temp)
+        // {
+        //     return arr[i];
+        // }
+
+        // else
+        // {
+        //     return temp;
+        // }
     }
 
 }

@@ -32,16 +32,20 @@ class Test
 
         else
         {
+            // int temp = max(ref, size, i + 1);
+
+            // if (ref[i] >= temp)
+            // {
+            //     return ref[i];
+            // }
+            // else
+            // {
+            //     return temp;
+            // }
+
             int temp = max(ref, size, i + 1);
 
-            if (ref[i] >= temp)
-            {
-                return ref[i];
-            }
-            else
-            {
-                return temp;
-            }
+            return ((ref[i] >= temp) ? ref[i] : temp);
         }
     }
 }
