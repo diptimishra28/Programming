@@ -11,6 +11,8 @@ int main(void)
 
     int* arr = (int*) malloc(n * sizeof (int));
 
+    printf("Enter %d integers: ", n);
+
     for (int i = 0; i < n; ++i)
     {
         scanf("%d", &(arr[i]));
