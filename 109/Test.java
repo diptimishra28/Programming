@@ -8,7 +8,7 @@ class Test
         ArrayList<Integer> arr = new ArrayList<Integer>();
 
         System.out.println("-------------------------------------------------");
-
+        
         System.out.println(arr.isEmpty());
 
         System.out.println("-------------------------------------------------");

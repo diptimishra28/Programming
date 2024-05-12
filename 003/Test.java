@@ -15,8 +15,6 @@ class Test
         System.out.println(n + " - " + m + " = " + (n - m));
         System.out.println(n + " * " + m + " = " + (n * m));
     }
-
-
 }
 
 

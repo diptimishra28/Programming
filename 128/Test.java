@@ -48,3 +48,80 @@ class Test
         arr[index2] = temp;
     }
 }
+
+
+
+// public class Test
+// {
+//     public static void main(String[] args)
+//     {
+//         String a = "dip";
+//         System.out.println(a);
+//         //System.out.println(args[0]);
+//     }
+// }
+
+
+
+/*
+
+java- class variables, group of methods.
+
+class is necessary bcz java is object oriented
+
+Acess modifiers:-
+public
+private
+protect
+
+memory management
+
+main has a static memory allocation
+args - storing user input
+
+static :- constant which does not change over time.
+local variables are defined inside methods.
+
+instance variables are those variable which are not defined in class or not in
+method. deifined in main function
+
+static variables are defined in class.
+
+
+
+*/
+
+/*
+
+pseudo code:-
+
+class ABC
+ {
+    static int a = 10; // static
+    Func()
+    {
+        int b = 20;// local
+    }
+    psvm(s args)
+    {
+        int c = 30; // instance
+    }
+
+}
+
+class car
+{
+    int static me; - object
+
+    snake();
+    PSVN(saras)
+    {
+
+    }
+}
+
+*/
+
+//Simple interest
+
+
